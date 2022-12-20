@@ -1,5 +1,5 @@
-/// <amd-module name="@scom/bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.json.ts" />
-declare module "@scom/bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.json.ts" {
+/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.json.ts" />
+declare module "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.json.ts" {
     const _default: {
         abi: ({
             inputs: {
@@ -44,8 +44,8 @@ declare module "@scom/bakery-swap-contract/contracts/@BakeryProject/bakery-swap-
     };
     export default _default;
 }
-/// <amd-module name="@scom/bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.ts" />
-declare module "@scom/bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.ts" {
+/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.ts" />
+declare module "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.ts" {
     import { IWallet, Contract as _Contract, TransactionReceipt, BigNumber, Event, TransactionOptions } from "@ijstech/eth-contract";
     export interface IDeployParams {
         name: string;
@@ -164,8 +164,8 @@ declare module "@scom/bakery-swap-contract/contracts/@BakeryProject/bakery-swap-
         }
     }
 }
-/// <amd-module name="@scom/bakery-swap-contract/contracts/BakeryMaster.json.ts" />
-declare module "@scom/bakery-swap-contract/contracts/BakeryMaster.json.ts" {
+/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.json.ts" />
+declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.json.ts" {
     const _default_1: {
         abi: ({
             inputs: {
@@ -210,8 +210,8 @@ declare module "@scom/bakery-swap-contract/contracts/BakeryMaster.json.ts" {
     };
     export default _default_1;
 }
-/// <amd-module name="@scom/bakery-swap-contract/contracts/BakeryMaster.ts" />
-declare module "@scom/bakery-swap-contract/contracts/BakeryMaster.ts" {
+/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts" />
+declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts" {
     import { IWallet, Contract as _Contract, TransactionReceipt, BigNumber, Event, TransactionOptions } from "@ijstech/eth-contract";
     export interface IDeployParams {
         bake: string;
@@ -414,8 +414,8 @@ declare module "@scom/bakery-swap-contract/contracts/BakeryMaster.ts" {
         }
     }
 }
-/// <amd-module name="@scom/bakery-swap-contract/contracts/BakerySwapRouter.json.ts" />
-declare module "@scom/bakery-swap-contract/contracts/BakerySwapRouter.json.ts" {
+/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.json.ts" />
+declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.json.ts" {
     const _default_2: {
         abi: ({
             inputs: {
@@ -452,8 +452,8 @@ declare module "@scom/bakery-swap-contract/contracts/BakerySwapRouter.json.ts" {
     };
     export default _default_2;
 }
-/// <amd-module name="@scom/bakery-swap-contract/contracts/BakerySwapRouter.ts" />
-declare module "@scom/bakery-swap-contract/contracts/BakerySwapRouter.ts" {
+/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts" />
+declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts" {
     import { IWallet, Contract as _Contract, TransactionReceipt, BigNumber, TransactionOptions } from "@ijstech/eth-contract";
     export interface IDeployParams {
         factory: string;
@@ -738,8 +738,8 @@ declare module "@scom/bakery-swap-contract/contracts/BakerySwapRouter.ts" {
         private assign;
     }
 }
-/// <amd-module name="@scom/bakery-swap-contract/contracts/BakeryToken.json.ts" />
-declare module "@scom/bakery-swap-contract/contracts/BakeryToken.json.ts" {
+/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakeryToken.json.ts" />
+declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.json.ts" {
     const _default_3: {
         abi: ({
             anonymous: boolean;
@@ -773,8 +773,8 @@ declare module "@scom/bakery-swap-contract/contracts/BakeryToken.json.ts" {
     };
     export default _default_3;
 }
-/// <amd-module name="@scom/bakery-swap-contract/contracts/BakeryToken.ts" />
-declare module "@scom/bakery-swap-contract/contracts/BakeryToken.ts" {
+/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts" />
+declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts" {
     import { IWallet, Contract as _Contract, TransactionReceipt, BigNumber, Event, TransactionOptions } from "@ijstech/eth-contract";
     export interface IAllowanceParams {
         owner: string;
@@ -964,14 +964,14 @@ declare module "@scom/bakery-swap-contract/contracts/BakeryToken.ts" {
         }
     }
 }
-/// <amd-module name="@scom/bakery-swap-contract/contracts/index.ts" />
-declare module "@scom/bakery-swap-contract/contracts/index.ts" {
-    export { BEP20 } from "@scom/bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.ts";
-    export { BakeryMaster } from "@scom/bakery-swap-contract/contracts/BakeryMaster.ts";
-    export { BakerySwapRouter } from "@scom/bakery-swap-contract/contracts/BakerySwapRouter.ts";
-    export { BakeryToken } from "@scom/bakery-swap-contract/contracts/BakeryToken.ts";
+/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/index.ts" />
+declare module "@scom/oswap-bakery-swap-contract/contracts/index.ts" {
+    export { BEP20 } from "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.ts";
+    export { BakeryMaster } from "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts";
+    export { BakerySwapRouter } from "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts";
+    export { BakeryToken } from "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts";
 }
-/// <amd-module name="@scom/bakery-swap-contract" />
-declare module "@scom/bakery-swap-contract" {
-    export * as Contracts from "@scom/bakery-swap-contract/contracts/index.ts";
+/// <amd-module name="@scom/oswap-bakery-swap-contract" />
+declare module "@scom/oswap-bakery-swap-contract" {
+    export * as Contracts from "@scom/oswap-bakery-swap-contract/contracts/index.ts";
 }
