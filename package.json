@@ -1,0 +1,31 @@
+{
+  "name": "@scom/bakery-swap-contract",
+  "version": "0.1.1",
+  "description": "",
+  "main": "lib/index.js",
+  "plugin": "dist/index.js",
+  "pluginTypes": "pluginTypes/index.d.ts",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "build": "rm -rf lib && rm -rf dist && rm -rf types && npm run build:contracts && npm run build:lib && npm run build:dist",
+    "build:contracts": "rm -rf src/contracts && sol2ts solconfig.json",
+    "build:dist": "npx @ijstech/compiler",
+    "build:lib": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ijstech/eth-contract": "^0.1.4"
+  },
+  "devDependencies": {
+    "@ijstech/cli": "^0.1.26",
+    "@ijstech/compiler": "^0.1.22",
+    "@ijstech/eth-wallet": "^0.1.35",
+    "@BakeryProject/bakery-swap-core": "file:./contracts/bakery-swap-core",
+    "@BakeryProject/bakery-swap-lib": "file:./contracts/bakery-swap-lib",
+    "@BakeryProject/bakery-swap-periphery": "file:./contracts/bakery-swap-periphery",
+    "ts-node": "10.1.0",
+    "typescript": "4.2.4"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@BakeryProject/bakery-swap-periphery",
+  "version": "0.0.1",
+  "description": "Bakery Swap Periphery",
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "build",
+    "contracts"
+  ],
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/BakeryProject/bakery-swap-periphery.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}

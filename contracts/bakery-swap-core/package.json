@@ -1,0 +1,20 @@
+{
+  "name": "@BakeryProject/bakery-swap-core",
+  "description": "Bakery Swap Core",
+  "version": "0.0.1",
+  "files": [
+    "contracts",
+    "build"
+  ],
+  "engines": {
+    "node": ">=10"
+  },  
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/BakeryProject/bakery-swap-core.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
