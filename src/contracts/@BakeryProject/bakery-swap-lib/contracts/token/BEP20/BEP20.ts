@@ -57,6 +57,7 @@ export class BEP20 extends _Contract{
     approve: {
         (params: IApproveParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IApproveParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: IApproveParams, options?: TransactionOptions) => Promise<string>;
     }
     balanceOf: {
         (account:string, options?: TransactionOptions): Promise<BigNumber>;
@@ -67,6 +68,7 @@ export class BEP20 extends _Contract{
     decreaseAllowance: {
         (params: IDecreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
     }
     getOwner: {
         (options?: TransactionOptions): Promise<string>;
@@ -74,10 +76,12 @@ export class BEP20 extends _Contract{
     increaseAllowance: {
         (params: IIncreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
     }
     mint: {
         (amount:number|BigNumber, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (amount:number|BigNumber, options?: TransactionOptions) => Promise<boolean>;
+        txData: (amount:number|BigNumber, options?: TransactionOptions) => Promise<string>;
     }
     name: {
         (options?: TransactionOptions): Promise<string>;
@@ -88,6 +92,7 @@ export class BEP20 extends _Contract{
     renounceOwnership: {
         (options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (options?: TransactionOptions) => Promise<void>;
+        txData: (options?: TransactionOptions) => Promise<string>;
     }
     symbol: {
         (options?: TransactionOptions): Promise<string>;
@@ -98,14 +103,17 @@ export class BEP20 extends _Contract{
     transfer: {
         (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ITransferParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: ITransferParams, options?: TransactionOptions) => Promise<string>;
     }
     transferFrom: {
         (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ITransferFromParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: ITransferFromParams, options?: TransactionOptions) => Promise<string>;
     }
     transferOwnership: {
         (newOwner:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (newOwner:string, options?: TransactionOptions) => Promise<void>;
+        txData: (newOwner:string, options?: TransactionOptions) => Promise<string>;
     }
     private assign(){
         let allowanceParams = (params: IAllowanceParams) => [params.owner,params.spender];
@@ -158,8 +166,13 @@ export class BEP20 extends _Contract{
             let result = await this.call('approve',approveParams(params),options);
             return result;
         }
+        let approve_txData = async (params: IApproveParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('approve',approveParams(params),options);
+            return result;
+        }
         this.approve = Object.assign(approve_send, {
             call:approve_call
+            , txData:approve_txData
         });
         let decreaseAllowanceParams = (params: IDecreaseAllowanceParams) => [params.spender,this.wallet.utils.toString(params.subtractedValue)];
         let decreaseAllowance_send = async (params: IDecreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -170,8 +183,13 @@ export class BEP20 extends _Contract{
             let result = await this.call('decreaseAllowance',decreaseAllowanceParams(params),options);
             return result;
         }
+        let decreaseAllowance_txData = async (params: IDecreaseAllowanceParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('decreaseAllowance',decreaseAllowanceParams(params),options);
+            return result;
+        }
         this.decreaseAllowance = Object.assign(decreaseAllowance_send, {
             call:decreaseAllowance_call
+            , txData:decreaseAllowance_txData
         });
         let increaseAllowanceParams = (params: IIncreaseAllowanceParams) => [params.spender,this.wallet.utils.toString(params.addedValue)];
         let increaseAllowance_send = async (params: IIncreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -182,8 +200,13 @@ export class BEP20 extends _Contract{
             let result = await this.call('increaseAllowance',increaseAllowanceParams(params),options);
             return result;
         }
+        let increaseAllowance_txData = async (params: IIncreaseAllowanceParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('increaseAllowance',increaseAllowanceParams(params),options);
+            return result;
+        }
         this.increaseAllowance = Object.assign(increaseAllowance_send, {
             call:increaseAllowance_call
+            , txData:increaseAllowance_txData
         });
         let mint_send = async (amount:number|BigNumber, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('mint',[this.wallet.utils.toString(amount)],options);
@@ -193,8 +216,13 @@ export class BEP20 extends _Contract{
             let result = await this.call('mint',[this.wallet.utils.toString(amount)],options);
             return result;
         }
+        let mint_txData = async (amount:number|BigNumber, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('mint',[this.wallet.utils.toString(amount)],options);
+            return result;
+        }
         this.mint = Object.assign(mint_send, {
             call:mint_call
+            , txData:mint_txData
         });
         let renounceOwnership_send = async (options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('renounceOwnership',[],options);
@@ -204,8 +232,13 @@ export class BEP20 extends _Contract{
             let result = await this.call('renounceOwnership',[],options);
             return;
         }
+        let renounceOwnership_txData = async (options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('renounceOwnership',[],options);
+            return result;
+        }
         this.renounceOwnership = Object.assign(renounceOwnership_send, {
             call:renounceOwnership_call
+            , txData:renounceOwnership_txData
         });
         let transferParams = (params: ITransferParams) => [params.recipient,this.wallet.utils.toString(params.amount)];
         let transfer_send = async (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -216,8 +249,13 @@ export class BEP20 extends _Contract{
             let result = await this.call('transfer',transferParams(params),options);
             return result;
         }
+        let transfer_txData = async (params: ITransferParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('transfer',transferParams(params),options);
+            return result;
+        }
         this.transfer = Object.assign(transfer_send, {
             call:transfer_call
+            , txData:transfer_txData
         });
         let transferFromParams = (params: ITransferFromParams) => [params.sender,params.recipient,this.wallet.utils.toString(params.amount)];
         let transferFrom_send = async (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -228,8 +266,13 @@ export class BEP20 extends _Contract{
             let result = await this.call('transferFrom',transferFromParams(params),options);
             return result;
         }
+        let transferFrom_txData = async (params: ITransferFromParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('transferFrom',transferFromParams(params),options);
+            return result;
+        }
         this.transferFrom = Object.assign(transferFrom_send, {
             call:transferFrom_call
+            , txData:transferFrom_txData
         });
         let transferOwnership_send = async (newOwner:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('transferOwnership',[newOwner],options);
@@ -239,8 +282,13 @@ export class BEP20 extends _Contract{
             let result = await this.call('transferOwnership',[newOwner],options);
             return;
         }
+        let transferOwnership_txData = async (newOwner:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('transferOwnership',[newOwner],options);
+            return result;
+        }
         this.transferOwnership = Object.assign(transferOwnership_send, {
             call:transferOwnership_call
+            , txData:transferOwnership_txData
         });
     }
 }

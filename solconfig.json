@@ -3,5 +3,6 @@
     "optimizerRuns": 999999,
     "sourceDir": "contracts/bakery-swap-periphery/contracts",
     "outputDir": "src/contracts",
+    "outputOptions": {"txData":true},
     "outputObjects": "bytecode"
 }

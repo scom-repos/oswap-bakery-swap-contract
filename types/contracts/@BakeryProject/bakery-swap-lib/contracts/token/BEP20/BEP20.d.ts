@@ -44,6 +44,7 @@ export declare class BEP20 extends _Contract {
     approve: {
         (params: IApproveParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IApproveParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: IApproveParams, options?: TransactionOptions) => Promise<string>;
     };
     balanceOf: {
         (account: string, options?: TransactionOptions): Promise<BigNumber>;
@@ -54,6 +55,7 @@ export declare class BEP20 extends _Contract {
     decreaseAllowance: {
         (params: IDecreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
     };
     getOwner: {
         (options?: TransactionOptions): Promise<string>;
@@ -61,10 +63,12 @@ export declare class BEP20 extends _Contract {
     increaseAllowance: {
         (params: IIncreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
     };
     mint: {
         (amount: number | BigNumber, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (amount: number | BigNumber, options?: TransactionOptions) => Promise<boolean>;
+        txData: (amount: number | BigNumber, options?: TransactionOptions) => Promise<string>;
     };
     name: {
         (options?: TransactionOptions): Promise<string>;
@@ -75,6 +79,7 @@ export declare class BEP20 extends _Contract {
     renounceOwnership: {
         (options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (options?: TransactionOptions) => Promise<void>;
+        txData: (options?: TransactionOptions) => Promise<string>;
     };
     symbol: {
         (options?: TransactionOptions): Promise<string>;
@@ -85,14 +90,17 @@ export declare class BEP20 extends _Contract {
     transfer: {
         (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ITransferParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: ITransferParams, options?: TransactionOptions) => Promise<string>;
     };
     transferFrom: {
         (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ITransferFromParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: ITransferFromParams, options?: TransactionOptions) => Promise<string>;
     };
     transferOwnership: {
         (newOwner: string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (newOwner: string, options?: TransactionOptions) => Promise<void>;
+        txData: (newOwner: string, options?: TransactionOptions) => Promise<string>;
     };
     private assign;
 }

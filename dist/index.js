@@ -126,8 +126,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-li
                 let result = await this.call('approve', approveParams(params), options);
                 return result;
             };
+            let approve_txData = async (params, options) => {
+                let result = await this.txData('approve', approveParams(params), options);
+                return result;
+            };
             this.approve = Object.assign(approve_send, {
-                call: approve_call
+                call: approve_call,
+                txData: approve_txData
             });
             let decreaseAllowanceParams = (params) => [params.spender, this.wallet.utils.toString(params.subtractedValue)];
             let decreaseAllowance_send = async (params, options) => {
@@ -138,8 +143,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-li
                 let result = await this.call('decreaseAllowance', decreaseAllowanceParams(params), options);
                 return result;
             };
+            let decreaseAllowance_txData = async (params, options) => {
+                let result = await this.txData('decreaseAllowance', decreaseAllowanceParams(params), options);
+                return result;
+            };
             this.decreaseAllowance = Object.assign(decreaseAllowance_send, {
-                call: decreaseAllowance_call
+                call: decreaseAllowance_call,
+                txData: decreaseAllowance_txData
             });
             let increaseAllowanceParams = (params) => [params.spender, this.wallet.utils.toString(params.addedValue)];
             let increaseAllowance_send = async (params, options) => {
@@ -150,8 +160,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-li
                 let result = await this.call('increaseAllowance', increaseAllowanceParams(params), options);
                 return result;
             };
+            let increaseAllowance_txData = async (params, options) => {
+                let result = await this.txData('increaseAllowance', increaseAllowanceParams(params), options);
+                return result;
+            };
             this.increaseAllowance = Object.assign(increaseAllowance_send, {
-                call: increaseAllowance_call
+                call: increaseAllowance_call,
+                txData: increaseAllowance_txData
             });
             let mint_send = async (amount, options) => {
                 let result = await this.send('mint', [this.wallet.utils.toString(amount)], options);
@@ -161,8 +176,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-li
                 let result = await this.call('mint', [this.wallet.utils.toString(amount)], options);
                 return result;
             };
+            let mint_txData = async (amount, options) => {
+                let result = await this.txData('mint', [this.wallet.utils.toString(amount)], options);
+                return result;
+            };
             this.mint = Object.assign(mint_send, {
-                call: mint_call
+                call: mint_call,
+                txData: mint_txData
             });
             let renounceOwnership_send = async (options) => {
                 let result = await this.send('renounceOwnership', [], options);
@@ -172,8 +192,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-li
                 let result = await this.call('renounceOwnership', [], options);
                 return;
             };
+            let renounceOwnership_txData = async (options) => {
+                let result = await this.txData('renounceOwnership', [], options);
+                return result;
+            };
             this.renounceOwnership = Object.assign(renounceOwnership_send, {
-                call: renounceOwnership_call
+                call: renounceOwnership_call,
+                txData: renounceOwnership_txData
             });
             let transferParams = (params) => [params.recipient, this.wallet.utils.toString(params.amount)];
             let transfer_send = async (params, options) => {
@@ -184,8 +209,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-li
                 let result = await this.call('transfer', transferParams(params), options);
                 return result;
             };
+            let transfer_txData = async (params, options) => {
+                let result = await this.txData('transfer', transferParams(params), options);
+                return result;
+            };
             this.transfer = Object.assign(transfer_send, {
-                call: transfer_call
+                call: transfer_call,
+                txData: transfer_txData
             });
             let transferFromParams = (params) => [params.sender, params.recipient, this.wallet.utils.toString(params.amount)];
             let transferFrom_send = async (params, options) => {
@@ -196,8 +226,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-li
                 let result = await this.call('transferFrom', transferFromParams(params), options);
                 return result;
             };
+            let transferFrom_txData = async (params, options) => {
+                let result = await this.txData('transferFrom', transferFromParams(params), options);
+                return result;
+            };
             this.transferFrom = Object.assign(transferFrom_send, {
-                call: transferFrom_call
+                call: transferFrom_call,
+                txData: transferFrom_txData
             });
             let transferOwnership_send = async (newOwner, options) => {
                 let result = await this.send('transferOwnership', [newOwner], options);
@@ -207,8 +242,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-li
                 let result = await this.call('transferOwnership', [newOwner], options);
                 return;
             };
+            let transferOwnership_txData = async (newOwner, options) => {
+                let result = await this.txData('transferOwnership', [newOwner], options);
+                return result;
+            };
             this.transferOwnership = Object.assign(transferOwnership_send, {
-                call: transferOwnership_call
+                call: transferOwnership_call,
+                txData: transferOwnership_txData
             });
         }
     }
@@ -453,8 +493,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts", ["require",
                 let result = await this.call('add', addParams(params), options);
                 return;
             };
+            let add_txData = async (params, options) => {
+                let result = await this.txData('add', addParams(params), options);
+                return result;
+            };
             this.add = Object.assign(add_send, {
-                call: add_call
+                call: add_call,
+                txData: add_txData
             });
             let depositParams = (params) => [params.pair, this.wallet.utils.toString(params.amount)];
             let deposit_send = async (params, options) => {
@@ -465,8 +510,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts", ["require",
                 let result = await this.call('deposit', depositParams(params), options);
                 return;
             };
+            let deposit_txData = async (params, options) => {
+                let result = await this.txData('deposit', depositParams(params), options);
+                return result;
+            };
             this.deposit = Object.assign(deposit_send, {
-                call: deposit_call
+                call: deposit_call,
+                txData: deposit_txData
             });
             let dev_send = async (devAddr, options) => {
                 let result = await this.send('dev', [devAddr], options);
@@ -476,8 +526,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts", ["require",
                 let result = await this.call('dev', [devAddr], options);
                 return;
             };
+            let dev_txData = async (devAddr, options) => {
+                let result = await this.txData('dev', [devAddr], options);
+                return result;
+            };
             this.dev = Object.assign(dev_send, {
-                call: dev_call
+                call: dev_call,
+                txData: dev_txData
             });
             let emergencyWithdraw_send = async (pair, options) => {
                 let result = await this.send('emergencyWithdraw', [pair], options);
@@ -487,8 +542,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts", ["require",
                 let result = await this.call('emergencyWithdraw', [pair], options);
                 return;
             };
+            let emergencyWithdraw_txData = async (pair, options) => {
+                let result = await this.txData('emergencyWithdraw', [pair], options);
+                return result;
+            };
             this.emergencyWithdraw = Object.assign(emergencyWithdraw_send, {
-                call: emergencyWithdraw_call
+                call: emergencyWithdraw_call,
+                txData: emergencyWithdraw_txData
             });
             let massUpdatePools_send = async (options) => {
                 let result = await this.send('massUpdatePools', [], options);
@@ -498,8 +558,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts", ["require",
                 let result = await this.call('massUpdatePools', [], options);
                 return;
             };
+            let massUpdatePools_txData = async (options) => {
+                let result = await this.txData('massUpdatePools', [], options);
+                return result;
+            };
             this.massUpdatePools = Object.assign(massUpdatePools_send, {
-                call: massUpdatePools_call
+                call: massUpdatePools_call,
+                txData: massUpdatePools_txData
             });
             let renounceOwnership_send = async (options) => {
                 let result = await this.send('renounceOwnership', [], options);
@@ -509,8 +574,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts", ["require",
                 let result = await this.call('renounceOwnership', [], options);
                 return;
             };
+            let renounceOwnership_txData = async (options) => {
+                let result = await this.txData('renounceOwnership', [], options);
+                return result;
+            };
             this.renounceOwnership = Object.assign(renounceOwnership_send, {
-                call: renounceOwnership_call
+                call: renounceOwnership_call,
+                txData: renounceOwnership_txData
             });
             let setParams = (params) => [params.pair, this.wallet.utils.toString(params.allocPoint), params.withUpdate];
             let set_send = async (params, options) => {
@@ -521,8 +591,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts", ["require",
                 let result = await this.call('set', setParams(params), options);
                 return;
             };
+            let set_txData = async (params, options) => {
+                let result = await this.txData('set', setParams(params), options);
+                return result;
+            };
             this.set = Object.assign(set_send, {
-                call: set_call
+                call: set_call,
+                txData: set_txData
             });
             let transferOwnership_send = async (newOwner, options) => {
                 let result = await this.send('transferOwnership', [newOwner], options);
@@ -532,8 +607,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts", ["require",
                 let result = await this.call('transferOwnership', [newOwner], options);
                 return;
             };
+            let transferOwnership_txData = async (newOwner, options) => {
+                let result = await this.txData('transferOwnership', [newOwner], options);
+                return result;
+            };
             this.transferOwnership = Object.assign(transferOwnership_send, {
-                call: transferOwnership_call
+                call: transferOwnership_call,
+                txData: transferOwnership_txData
             });
             let updatePool_send = async (pair, options) => {
                 let result = await this.send('updatePool', [pair], options);
@@ -543,8 +623,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts", ["require",
                 let result = await this.call('updatePool', [pair], options);
                 return;
             };
+            let updatePool_txData = async (pair, options) => {
+                let result = await this.txData('updatePool', [pair], options);
+                return result;
+            };
             this.updatePool = Object.assign(updatePool_send, {
-                call: updatePool_call
+                call: updatePool_call,
+                txData: updatePool_txData
             });
             let withdrawParams = (params) => [params.pair, this.wallet.utils.toString(params.amount)];
             let withdraw_send = async (params, options) => {
@@ -555,8 +640,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts", ["require",
                 let result = await this.call('withdraw', withdrawParams(params), options);
                 return;
             };
+            let withdraw_txData = async (params, options) => {
+                let result = await this.txData('withdraw', withdrawParams(params), options);
+                return result;
+            };
             this.withdraw = Object.assign(withdraw_send, {
-                call: withdraw_call
+                call: withdraw_call,
+                txData: withdraw_txData
             });
         }
     }
@@ -665,8 +755,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                     liquidity: new eth_contract_3.BigNumber(result.liquidity)
                 };
             };
+            let addLiquidity_txData = async (params, options) => {
+                let result = await this.txData('addLiquidity', addLiquidityParams(params), options);
+                return result;
+            };
             this.addLiquidity = Object.assign(addLiquidity_send, {
-                call: addLiquidity_call
+                call: addLiquidity_call,
+                txData: addLiquidity_txData
             });
             let addLiquidityBNBParams = (params) => [params.token, this.wallet.utils.toString(params.amountTokenDesired), this.wallet.utils.toString(params.amountTokenMin), this.wallet.utils.toString(params.amountBNBMin), params.to, this.wallet.utils.toString(params.deadline)];
             let addLiquidityBNB_send = async (params, options) => {
@@ -681,8 +776,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                     liquidity: new eth_contract_3.BigNumber(result.liquidity)
                 };
             };
+            let addLiquidityBNB_txData = async (params, options) => {
+                let result = await this.txData('addLiquidityBNB', addLiquidityBNBParams(params), options);
+                return result;
+            };
             this.addLiquidityBNB = Object.assign(addLiquidityBNB_send, {
-                call: addLiquidityBNB_call
+                call: addLiquidityBNB_call,
+                txData: addLiquidityBNB_txData
             });
             let removeLiquidityParams = (params) => [params.tokenA, params.tokenB, this.wallet.utils.toString(params.liquidity), this.wallet.utils.toString(params.amountAMin), this.wallet.utils.toString(params.amountBMin), params.to, this.wallet.utils.toString(params.deadline)];
             let removeLiquidity_send = async (params, options) => {
@@ -696,8 +796,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                     amountB: new eth_contract_3.BigNumber(result.amountB)
                 };
             };
+            let removeLiquidity_txData = async (params, options) => {
+                let result = await this.txData('removeLiquidity', removeLiquidityParams(params), options);
+                return result;
+            };
             this.removeLiquidity = Object.assign(removeLiquidity_send, {
-                call: removeLiquidity_call
+                call: removeLiquidity_call,
+                txData: removeLiquidity_txData
             });
             let removeLiquidityBNBParams = (params) => [params.token, this.wallet.utils.toString(params.liquidity), this.wallet.utils.toString(params.amountTokenMin), this.wallet.utils.toString(params.amountBNBMin), params.to, this.wallet.utils.toString(params.deadline)];
             let removeLiquidityBNB_send = async (params, options) => {
@@ -711,8 +816,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                     amountBNB: new eth_contract_3.BigNumber(result.amountBNB)
                 };
             };
+            let removeLiquidityBNB_txData = async (params, options) => {
+                let result = await this.txData('removeLiquidityBNB', removeLiquidityBNBParams(params), options);
+                return result;
+            };
             this.removeLiquidityBNB = Object.assign(removeLiquidityBNB_send, {
-                call: removeLiquidityBNB_call
+                call: removeLiquidityBNB_call,
+                txData: removeLiquidityBNB_txData
             });
             let removeLiquidityBNBSupportingFeeOnTransferTokensParams = (params) => [params.token, this.wallet.utils.toString(params.liquidity), this.wallet.utils.toString(params.amountTokenMin), this.wallet.utils.toString(params.amountBNBMin), params.to, this.wallet.utils.toString(params.deadline)];
             let removeLiquidityBNBSupportingFeeOnTransferTokens_send = async (params, options) => {
@@ -723,8 +833,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                 let result = await this.call('removeLiquidityBNBSupportingFeeOnTransferTokens', removeLiquidityBNBSupportingFeeOnTransferTokensParams(params), options);
                 return new eth_contract_3.BigNumber(result);
             };
+            let removeLiquidityBNBSupportingFeeOnTransferTokens_txData = async (params, options) => {
+                let result = await this.txData('removeLiquidityBNBSupportingFeeOnTransferTokens', removeLiquidityBNBSupportingFeeOnTransferTokensParams(params), options);
+                return result;
+            };
             this.removeLiquidityBNBSupportingFeeOnTransferTokens = Object.assign(removeLiquidityBNBSupportingFeeOnTransferTokens_send, {
-                call: removeLiquidityBNBSupportingFeeOnTransferTokens_call
+                call: removeLiquidityBNBSupportingFeeOnTransferTokens_call,
+                txData: removeLiquidityBNBSupportingFeeOnTransferTokens_txData
             });
             let removeLiquidityBNBWithPermitParams = (params) => [params.token, this.wallet.utils.toString(params.liquidity), this.wallet.utils.toString(params.amountTokenMin), this.wallet.utils.toString(params.amountBNBMin), params.to, this.wallet.utils.toString(params.deadline), params.approveMax, this.wallet.utils.toString(params.v), this.wallet.utils.stringToBytes32(params.r), this.wallet.utils.stringToBytes32(params.s)];
             let removeLiquidityBNBWithPermit_send = async (params, options) => {
@@ -738,8 +853,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                     amountBNB: new eth_contract_3.BigNumber(result.amountBNB)
                 };
             };
+            let removeLiquidityBNBWithPermit_txData = async (params, options) => {
+                let result = await this.txData('removeLiquidityBNBWithPermit', removeLiquidityBNBWithPermitParams(params), options);
+                return result;
+            };
             this.removeLiquidityBNBWithPermit = Object.assign(removeLiquidityBNBWithPermit_send, {
-                call: removeLiquidityBNBWithPermit_call
+                call: removeLiquidityBNBWithPermit_call,
+                txData: removeLiquidityBNBWithPermit_txData
             });
             let removeLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams = (params) => [params.token, this.wallet.utils.toString(params.liquidity), this.wallet.utils.toString(params.amountTokenMin), this.wallet.utils.toString(params.amountBNBMin), params.to, this.wallet.utils.toString(params.deadline), params.approveMax, this.wallet.utils.toString(params.v), this.wallet.utils.stringToBytes32(params.r), this.wallet.utils.stringToBytes32(params.s)];
             let removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens_send = async (params, options) => {
@@ -750,8 +870,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                 let result = await this.call('removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens', removeLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams(params), options);
                 return new eth_contract_3.BigNumber(result);
             };
+            let removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens_txData = async (params, options) => {
+                let result = await this.txData('removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens', removeLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams(params), options);
+                return result;
+            };
             this.removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens = Object.assign(removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens_send, {
-                call: removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens_call
+                call: removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens_call,
+                txData: removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens_txData
             });
             let removeLiquidityWithPermitParams = (params) => [params.tokenA, params.tokenB, this.wallet.utils.toString(params.liquidity), this.wallet.utils.toString(params.amountAMin), this.wallet.utils.toString(params.amountBMin), params.to, this.wallet.utils.toString(params.deadline), params.approveMax, this.wallet.utils.toString(params.v), this.wallet.utils.stringToBytes32(params.r), this.wallet.utils.stringToBytes32(params.s)];
             let removeLiquidityWithPermit_send = async (params, options) => {
@@ -765,8 +890,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                     amountB: new eth_contract_3.BigNumber(result.amountB)
                 };
             };
+            let removeLiquidityWithPermit_txData = async (params, options) => {
+                let result = await this.txData('removeLiquidityWithPermit', removeLiquidityWithPermitParams(params), options);
+                return result;
+            };
             this.removeLiquidityWithPermit = Object.assign(removeLiquidityWithPermit_send, {
-                call: removeLiquidityWithPermit_call
+                call: removeLiquidityWithPermit_call,
+                txData: removeLiquidityWithPermit_txData
             });
             let swapBNBForExactTokensParams = (params) => [this.wallet.utils.toString(params.amountOut), params.path, params.to, this.wallet.utils.toString(params.deadline)];
             let swapBNBForExactTokens_send = async (params, options) => {
@@ -777,8 +907,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                 let result = await this.call('swapBNBForExactTokens', swapBNBForExactTokensParams(params), options);
                 return result.map(e => new eth_contract_3.BigNumber(e));
             };
+            let swapBNBForExactTokens_txData = async (params, options) => {
+                let result = await this.txData('swapBNBForExactTokens', swapBNBForExactTokensParams(params), options);
+                return result;
+            };
             this.swapBNBForExactTokens = Object.assign(swapBNBForExactTokens_send, {
-                call: swapBNBForExactTokens_call
+                call: swapBNBForExactTokens_call,
+                txData: swapBNBForExactTokens_txData
             });
             let swapExactBNBForTokensParams = (params) => [this.wallet.utils.toString(params.amountOutMin), params.path, params.to, this.wallet.utils.toString(params.deadline)];
             let swapExactBNBForTokens_send = async (params, options) => {
@@ -789,8 +924,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                 let result = await this.call('swapExactBNBForTokens', swapExactBNBForTokensParams(params), options);
                 return result.map(e => new eth_contract_3.BigNumber(e));
             };
+            let swapExactBNBForTokens_txData = async (params, options) => {
+                let result = await this.txData('swapExactBNBForTokens', swapExactBNBForTokensParams(params), options);
+                return result;
+            };
             this.swapExactBNBForTokens = Object.assign(swapExactBNBForTokens_send, {
-                call: swapExactBNBForTokens_call
+                call: swapExactBNBForTokens_call,
+                txData: swapExactBNBForTokens_txData
             });
             let swapExactBNBForTokensSupportingFeeOnTransferTokensParams = (params) => [this.wallet.utils.toString(params.amountOutMin), params.path, params.to, this.wallet.utils.toString(params.deadline)];
             let swapExactBNBForTokensSupportingFeeOnTransferTokens_send = async (params, options) => {
@@ -801,8 +941,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                 let result = await this.call('swapExactBNBForTokensSupportingFeeOnTransferTokens', swapExactBNBForTokensSupportingFeeOnTransferTokensParams(params), options);
                 return;
             };
+            let swapExactBNBForTokensSupportingFeeOnTransferTokens_txData = async (params, options) => {
+                let result = await this.txData('swapExactBNBForTokensSupportingFeeOnTransferTokens', swapExactBNBForTokensSupportingFeeOnTransferTokensParams(params), options);
+                return result;
+            };
             this.swapExactBNBForTokensSupportingFeeOnTransferTokens = Object.assign(swapExactBNBForTokensSupportingFeeOnTransferTokens_send, {
-                call: swapExactBNBForTokensSupportingFeeOnTransferTokens_call
+                call: swapExactBNBForTokensSupportingFeeOnTransferTokens_call,
+                txData: swapExactBNBForTokensSupportingFeeOnTransferTokens_txData
             });
             let swapExactTokensForBNBParams = (params) => [this.wallet.utils.toString(params.amountIn), this.wallet.utils.toString(params.amountOutMin), params.path, params.to, this.wallet.utils.toString(params.deadline)];
             let swapExactTokensForBNB_send = async (params, options) => {
@@ -813,8 +958,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                 let result = await this.call('swapExactTokensForBNB', swapExactTokensForBNBParams(params), options);
                 return result.map(e => new eth_contract_3.BigNumber(e));
             };
+            let swapExactTokensForBNB_txData = async (params, options) => {
+                let result = await this.txData('swapExactTokensForBNB', swapExactTokensForBNBParams(params), options);
+                return result;
+            };
             this.swapExactTokensForBNB = Object.assign(swapExactTokensForBNB_send, {
-                call: swapExactTokensForBNB_call
+                call: swapExactTokensForBNB_call,
+                txData: swapExactTokensForBNB_txData
             });
             let swapExactTokensForBNBSupportingFeeOnTransferTokensParams = (params) => [this.wallet.utils.toString(params.amountIn), this.wallet.utils.toString(params.amountOutMin), params.path, params.to, this.wallet.utils.toString(params.deadline)];
             let swapExactTokensForBNBSupportingFeeOnTransferTokens_send = async (params, options) => {
@@ -825,8 +975,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                 let result = await this.call('swapExactTokensForBNBSupportingFeeOnTransferTokens', swapExactTokensForBNBSupportingFeeOnTransferTokensParams(params), options);
                 return;
             };
+            let swapExactTokensForBNBSupportingFeeOnTransferTokens_txData = async (params, options) => {
+                let result = await this.txData('swapExactTokensForBNBSupportingFeeOnTransferTokens', swapExactTokensForBNBSupportingFeeOnTransferTokensParams(params), options);
+                return result;
+            };
             this.swapExactTokensForBNBSupportingFeeOnTransferTokens = Object.assign(swapExactTokensForBNBSupportingFeeOnTransferTokens_send, {
-                call: swapExactTokensForBNBSupportingFeeOnTransferTokens_call
+                call: swapExactTokensForBNBSupportingFeeOnTransferTokens_call,
+                txData: swapExactTokensForBNBSupportingFeeOnTransferTokens_txData
             });
             let swapExactTokensForTokensParams = (params) => [this.wallet.utils.toString(params.amountIn), this.wallet.utils.toString(params.amountOutMin), params.path, params.to, this.wallet.utils.toString(params.deadline)];
             let swapExactTokensForTokens_send = async (params, options) => {
@@ -837,8 +992,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                 let result = await this.call('swapExactTokensForTokens', swapExactTokensForTokensParams(params), options);
                 return result.map(e => new eth_contract_3.BigNumber(e));
             };
+            let swapExactTokensForTokens_txData = async (params, options) => {
+                let result = await this.txData('swapExactTokensForTokens', swapExactTokensForTokensParams(params), options);
+                return result;
+            };
             this.swapExactTokensForTokens = Object.assign(swapExactTokensForTokens_send, {
-                call: swapExactTokensForTokens_call
+                call: swapExactTokensForTokens_call,
+                txData: swapExactTokensForTokens_txData
             });
             let swapExactTokensForTokensSupportingFeeOnTransferTokensParams = (params) => [this.wallet.utils.toString(params.amountIn), this.wallet.utils.toString(params.amountOutMin), params.path, params.to, this.wallet.utils.toString(params.deadline)];
             let swapExactTokensForTokensSupportingFeeOnTransferTokens_send = async (params, options) => {
@@ -849,8 +1009,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                 let result = await this.call('swapExactTokensForTokensSupportingFeeOnTransferTokens', swapExactTokensForTokensSupportingFeeOnTransferTokensParams(params), options);
                 return;
             };
+            let swapExactTokensForTokensSupportingFeeOnTransferTokens_txData = async (params, options) => {
+                let result = await this.txData('swapExactTokensForTokensSupportingFeeOnTransferTokens', swapExactTokensForTokensSupportingFeeOnTransferTokensParams(params), options);
+                return result;
+            };
             this.swapExactTokensForTokensSupportingFeeOnTransferTokens = Object.assign(swapExactTokensForTokensSupportingFeeOnTransferTokens_send, {
-                call: swapExactTokensForTokensSupportingFeeOnTransferTokens_call
+                call: swapExactTokensForTokensSupportingFeeOnTransferTokens_call,
+                txData: swapExactTokensForTokensSupportingFeeOnTransferTokens_txData
             });
             let swapTokensForExactBNBParams = (params) => [this.wallet.utils.toString(params.amountOut), this.wallet.utils.toString(params.amountInMax), params.path, params.to, this.wallet.utils.toString(params.deadline)];
             let swapTokensForExactBNB_send = async (params, options) => {
@@ -861,8 +1026,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                 let result = await this.call('swapTokensForExactBNB', swapTokensForExactBNBParams(params), options);
                 return result.map(e => new eth_contract_3.BigNumber(e));
             };
+            let swapTokensForExactBNB_txData = async (params, options) => {
+                let result = await this.txData('swapTokensForExactBNB', swapTokensForExactBNBParams(params), options);
+                return result;
+            };
             this.swapTokensForExactBNB = Object.assign(swapTokensForExactBNB_send, {
-                call: swapTokensForExactBNB_call
+                call: swapTokensForExactBNB_call,
+                txData: swapTokensForExactBNB_txData
             });
             let swapTokensForExactTokensParams = (params) => [this.wallet.utils.toString(params.amountOut), this.wallet.utils.toString(params.amountInMax), params.path, params.to, this.wallet.utils.toString(params.deadline)];
             let swapTokensForExactTokens_send = async (params, options) => {
@@ -873,8 +1043,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts", ["requi
                 let result = await this.call('swapTokensForExactTokens', swapTokensForExactTokensParams(params), options);
                 return result.map(e => new eth_contract_3.BigNumber(e));
             };
+            let swapTokensForExactTokens_txData = async (params, options) => {
+                let result = await this.txData('swapTokensForExactTokens', swapTokensForExactTokensParams(params), options);
+                return result;
+            };
             this.swapTokensForExactTokens = Object.assign(swapTokensForExactTokens_send, {
-                call: swapTokensForExactTokens_call
+                call: swapTokensForExactTokens_call,
+                txData: swapTokensForExactTokens_txData
             });
         }
     }
@@ -1090,8 +1265,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts", ["require", 
                 let result = await this.call('approve', approveParams(params), options);
                 return result;
             };
+            let approve_txData = async (params, options) => {
+                let result = await this.txData('approve', approveParams(params), options);
+                return result;
+            };
             this.approve = Object.assign(approve_send, {
-                call: approve_call
+                call: approve_call,
+                txData: approve_txData
             });
             let decreaseAllowanceParams = (params) => [params.spender, this.wallet.utils.toString(params.subtractedValue)];
             let decreaseAllowance_send = async (params, options) => {
@@ -1102,8 +1282,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts", ["require", 
                 let result = await this.call('decreaseAllowance', decreaseAllowanceParams(params), options);
                 return result;
             };
+            let decreaseAllowance_txData = async (params, options) => {
+                let result = await this.txData('decreaseAllowance', decreaseAllowanceParams(params), options);
+                return result;
+            };
             this.decreaseAllowance = Object.assign(decreaseAllowance_send, {
-                call: decreaseAllowance_call
+                call: decreaseAllowance_call,
+                txData: decreaseAllowance_txData
             });
             let delegate_send = async (delegatee, options) => {
                 let result = await this.send('delegate', [delegatee], options);
@@ -1113,8 +1298,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts", ["require", 
                 let result = await this.call('delegate', [delegatee], options);
                 return;
             };
+            let delegate_txData = async (delegatee, options) => {
+                let result = await this.txData('delegate', [delegatee], options);
+                return result;
+            };
             this.delegate = Object.assign(delegate_send, {
-                call: delegate_call
+                call: delegate_call,
+                txData: delegate_txData
             });
             let delegateBySigParams = (params) => [params.delegatee, this.wallet.utils.toString(params.nonce), this.wallet.utils.toString(params.expiry), this.wallet.utils.toString(params.v), this.wallet.utils.stringToBytes32(params.r), this.wallet.utils.stringToBytes32(params.s)];
             let delegateBySig_send = async (params, options) => {
@@ -1125,8 +1315,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts", ["require", 
                 let result = await this.call('delegateBySig', delegateBySigParams(params), options);
                 return;
             };
+            let delegateBySig_txData = async (params, options) => {
+                let result = await this.txData('delegateBySig', delegateBySigParams(params), options);
+                return result;
+            };
             this.delegateBySig = Object.assign(delegateBySig_send, {
-                call: delegateBySig_call
+                call: delegateBySig_call,
+                txData: delegateBySig_txData
             });
             let increaseAllowanceParams = (params) => [params.spender, this.wallet.utils.toString(params.addedValue)];
             let increaseAllowance_send = async (params, options) => {
@@ -1137,8 +1332,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts", ["require", 
                 let result = await this.call('increaseAllowance', increaseAllowanceParams(params), options);
                 return result;
             };
+            let increaseAllowance_txData = async (params, options) => {
+                let result = await this.txData('increaseAllowance', increaseAllowanceParams(params), options);
+                return result;
+            };
             this.increaseAllowance = Object.assign(increaseAllowance_send, {
-                call: increaseAllowance_call
+                call: increaseAllowance_call,
+                txData: increaseAllowance_txData
             });
             let mint_send = async (amount, options) => {
                 let result = await this.send('mint', [this.wallet.utils.toString(amount)], options);
@@ -1148,8 +1348,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts", ["require", 
                 let result = await this.call('mint', [this.wallet.utils.toString(amount)], options);
                 return result;
             };
+            let mint_txData = async (amount, options) => {
+                let result = await this.txData('mint', [this.wallet.utils.toString(amount)], options);
+                return result;
+            };
             this.mint = Object.assign(mint_send, {
-                call: mint_call
+                call: mint_call,
+                txData: mint_txData
             });
             let mintToParams = (params) => [params.to, this.wallet.utils.toString(params.amount)];
             let mintTo_send = async (params, options) => {
@@ -1160,8 +1365,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts", ["require", 
                 let result = await this.call('mintTo', mintToParams(params), options);
                 return;
             };
+            let mintTo_txData = async (params, options) => {
+                let result = await this.txData('mintTo', mintToParams(params), options);
+                return result;
+            };
             this.mintTo = Object.assign(mintTo_send, {
-                call: mintTo_call
+                call: mintTo_call,
+                txData: mintTo_txData
             });
             let renounceOwnership_send = async (options) => {
                 let result = await this.send('renounceOwnership', [], options);
@@ -1171,8 +1381,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts", ["require", 
                 let result = await this.call('renounceOwnership', [], options);
                 return;
             };
+            let renounceOwnership_txData = async (options) => {
+                let result = await this.txData('renounceOwnership', [], options);
+                return result;
+            };
             this.renounceOwnership = Object.assign(renounceOwnership_send, {
-                call: renounceOwnership_call
+                call: renounceOwnership_call,
+                txData: renounceOwnership_txData
             });
             let transferParams = (params) => [params.recipient, this.wallet.utils.toString(params.amount)];
             let transfer_send = async (params, options) => {
@@ -1183,8 +1398,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts", ["require", 
                 let result = await this.call('transfer', transferParams(params), options);
                 return result;
             };
+            let transfer_txData = async (params, options) => {
+                let result = await this.txData('transfer', transferParams(params), options);
+                return result;
+            };
             this.transfer = Object.assign(transfer_send, {
-                call: transfer_call
+                call: transfer_call,
+                txData: transfer_txData
             });
             let transferFromParams = (params) => [params.sender, params.recipient, this.wallet.utils.toString(params.amount)];
             let transferFrom_send = async (params, options) => {
@@ -1195,8 +1415,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts", ["require", 
                 let result = await this.call('transferFrom', transferFromParams(params), options);
                 return result;
             };
+            let transferFrom_txData = async (params, options) => {
+                let result = await this.txData('transferFrom', transferFromParams(params), options);
+                return result;
+            };
             this.transferFrom = Object.assign(transferFrom_send, {
-                call: transferFrom_call
+                call: transferFrom_call,
+                txData: transferFrom_txData
             });
             let transferOwnership_send = async (newOwner, options) => {
                 let result = await this.send('transferOwnership', [newOwner], options);
@@ -1206,8 +1431,13 @@ define("@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts", ["require", 
                 let result = await this.call('transferOwnership', [newOwner], options);
                 return;
             };
+            let transferOwnership_txData = async (newOwner, options) => {
+                let result = await this.txData('transferOwnership', [newOwner], options);
+                return result;
+            };
             this.transferOwnership = Object.assign(transferOwnership_send, {
-                call: transferOwnership_call
+                call: transferOwnership_call,
+                txData: transferOwnership_txData
             });
         }
     }

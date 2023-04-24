@@ -180,6 +180,7 @@ export declare class BakerySwapRouter extends _Contract {
             amountB: BigNumber;
             liquidity: BigNumber;
         }>;
+        txData: (params: IAddLiquidityParams, options?: TransactionOptions) => Promise<string>;
     };
     addLiquidityBNB: {
         (params: IAddLiquidityBNBParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
@@ -188,6 +189,7 @@ export declare class BakerySwapRouter extends _Contract {
             amountBNB: BigNumber;
             liquidity: BigNumber;
         }>;
+        txData: (params: IAddLiquidityBNBParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
     };
     factory: {
         (options?: TransactionOptions): Promise<string>;
@@ -213,6 +215,7 @@ export declare class BakerySwapRouter extends _Contract {
             amountA: BigNumber;
             amountB: BigNumber;
         }>;
+        txData: (params: IRemoveLiquidityParams, options?: TransactionOptions) => Promise<string>;
     };
     removeLiquidityBNB: {
         (params: IRemoveLiquidityBNBParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -220,10 +223,12 @@ export declare class BakerySwapRouter extends _Contract {
             amountToken: BigNumber;
             amountBNB: BigNumber;
         }>;
+        txData: (params: IRemoveLiquidityBNBParams, options?: TransactionOptions) => Promise<string>;
     };
     removeLiquidityBNBSupportingFeeOnTransferTokens: {
         (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+        txData: (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     removeLiquidityBNBWithPermit: {
         (params: IRemoveLiquidityBNBWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -231,10 +236,12 @@ export declare class BakerySwapRouter extends _Contract {
             amountToken: BigNumber;
             amountBNB: BigNumber;
         }>;
+        txData: (params: IRemoveLiquidityBNBWithPermitParams, options?: TransactionOptions) => Promise<string>;
     };
     removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens: {
         (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+        txData: (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     removeLiquidityWithPermit: {
         (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -242,42 +249,52 @@ export declare class BakerySwapRouter extends _Contract {
             amountA: BigNumber;
             amountB: BigNumber;
         }>;
+        txData: (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions) => Promise<string>;
     };
     swapBNBForExactTokens: {
         (params: ISwapBNBForExactTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapBNBForExactTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapBNBForExactTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
     };
     swapExactBNBForTokens: {
         (params: ISwapExactBNBForTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactBNBForTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactBNBForTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
     };
     swapExactBNBForTokensSupportingFeeOnTransferTokens: {
         (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
     };
     swapExactTokensForBNB: {
         (params: ISwapExactTokensForBNBParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForBNBParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactTokensForBNBParams, options?: TransactionOptions) => Promise<string>;
     };
     swapExactTokensForBNBSupportingFeeOnTransferTokens: {
         (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     swapExactTokensForTokens: {
         (params: ISwapExactTokensForTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     swapExactTokensForTokensSupportingFeeOnTransferTokens: {
         (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     swapTokensForExactBNB: {
         (params: ISwapTokensForExactBNBParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapTokensForExactBNBParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapTokensForExactBNBParams, options?: TransactionOptions) => Promise<string>;
     };
     swapTokensForExactTokens: {
         (params: ISwapTokensForExactTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<string>;
     };
     private assign;
 }

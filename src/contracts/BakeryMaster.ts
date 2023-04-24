@@ -71,6 +71,7 @@ export class BakeryMaster extends _Contract{
     add: {
         (params: IAddParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IAddParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: IAddParams, options?: TransactionOptions) => Promise<string>;
     }
     bake: {
         (options?: TransactionOptions): Promise<string>;
@@ -99,10 +100,12 @@ export class BakeryMaster extends _Contract{
     deposit: {
         (params: IDepositParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IDepositParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: IDepositParams, options?: TransactionOptions) => Promise<string>;
     }
     dev: {
         (devAddr:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (devAddr:string, options?: TransactionOptions) => Promise<void>;
+        txData: (devAddr:string, options?: TransactionOptions) => Promise<string>;
     }
     devAddr: {
         (options?: TransactionOptions): Promise<string>;
@@ -110,6 +113,7 @@ export class BakeryMaster extends _Contract{
     emergencyWithdraw: {
         (pair:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (pair:string, options?: TransactionOptions) => Promise<void>;
+        txData: (pair:string, options?: TransactionOptions) => Promise<string>;
     }
     existsPool: {
         (pair:string, options?: TransactionOptions): Promise<boolean>;
@@ -123,6 +127,7 @@ export class BakeryMaster extends _Contract{
     massUpdatePools: {
         (options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (options?: TransactionOptions) => Promise<void>;
+        txData: (options?: TransactionOptions) => Promise<string>;
     }
     maxRewardBlockNumber: {
         (options?: TransactionOptions): Promise<BigNumber>;
@@ -148,10 +153,12 @@ export class BakeryMaster extends _Contract{
     renounceOwnership: {
         (options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (options?: TransactionOptions) => Promise<void>;
+        txData: (options?: TransactionOptions) => Promise<string>;
     }
     set: {
         (params: ISetParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISetParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: ISetParams, options?: TransactionOptions) => Promise<string>;
     }
     startBlock: {
         (options?: TransactionOptions): Promise<BigNumber>;
@@ -162,14 +169,17 @@ export class BakeryMaster extends _Contract{
     transferOwnership: {
         (newOwner:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (newOwner:string, options?: TransactionOptions) => Promise<void>;
+        txData: (newOwner:string, options?: TransactionOptions) => Promise<string>;
     }
     updatePool: {
         (pair:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (pair:string, options?: TransactionOptions) => Promise<void>;
+        txData: (pair:string, options?: TransactionOptions) => Promise<string>;
     }
     withdraw: {
         (params: IWithdrawParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IWithdrawParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: IWithdrawParams, options?: TransactionOptions) => Promise<string>;
     }
     private assign(){
         let accBakePerShareMultiple_call = async (options?: TransactionOptions): Promise<BigNumber> => {
@@ -303,8 +313,13 @@ export class BakeryMaster extends _Contract{
             let result = await this.call('add',addParams(params),options);
             return;
         }
+        let add_txData = async (params: IAddParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('add',addParams(params),options);
+            return result;
+        }
         this.add = Object.assign(add_send, {
             call:add_call
+            , txData:add_txData
         });
         let depositParams = (params: IDepositParams) => [params.pair,this.wallet.utils.toString(params.amount)];
         let deposit_send = async (params: IDepositParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -315,8 +330,13 @@ export class BakeryMaster extends _Contract{
             let result = await this.call('deposit',depositParams(params),options);
             return;
         }
+        let deposit_txData = async (params: IDepositParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('deposit',depositParams(params),options);
+            return result;
+        }
         this.deposit = Object.assign(deposit_send, {
             call:deposit_call
+            , txData:deposit_txData
         });
         let dev_send = async (devAddr:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('dev',[devAddr],options);
@@ -326,8 +346,13 @@ export class BakeryMaster extends _Contract{
             let result = await this.call('dev',[devAddr],options);
             return;
         }
+        let dev_txData = async (devAddr:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('dev',[devAddr],options);
+            return result;
+        }
         this.dev = Object.assign(dev_send, {
             call:dev_call
+            , txData:dev_txData
         });
         let emergencyWithdraw_send = async (pair:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('emergencyWithdraw',[pair],options);
@@ -337,8 +362,13 @@ export class BakeryMaster extends _Contract{
             let result = await this.call('emergencyWithdraw',[pair],options);
             return;
         }
+        let emergencyWithdraw_txData = async (pair:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('emergencyWithdraw',[pair],options);
+            return result;
+        }
         this.emergencyWithdraw = Object.assign(emergencyWithdraw_send, {
             call:emergencyWithdraw_call
+            , txData:emergencyWithdraw_txData
         });
         let massUpdatePools_send = async (options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('massUpdatePools',[],options);
@@ -348,8 +378,13 @@ export class BakeryMaster extends _Contract{
             let result = await this.call('massUpdatePools',[],options);
             return;
         }
+        let massUpdatePools_txData = async (options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('massUpdatePools',[],options);
+            return result;
+        }
         this.massUpdatePools = Object.assign(massUpdatePools_send, {
             call:massUpdatePools_call
+            , txData:massUpdatePools_txData
         });
         let renounceOwnership_send = async (options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('renounceOwnership',[],options);
@@ -359,8 +394,13 @@ export class BakeryMaster extends _Contract{
             let result = await this.call('renounceOwnership',[],options);
             return;
         }
+        let renounceOwnership_txData = async (options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('renounceOwnership',[],options);
+            return result;
+        }
         this.renounceOwnership = Object.assign(renounceOwnership_send, {
             call:renounceOwnership_call
+            , txData:renounceOwnership_txData
         });
         let setParams = (params: ISetParams) => [params.pair,this.wallet.utils.toString(params.allocPoint),params.withUpdate];
         let set_send = async (params: ISetParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -371,8 +411,13 @@ export class BakeryMaster extends _Contract{
             let result = await this.call('set',setParams(params),options);
             return;
         }
+        let set_txData = async (params: ISetParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('set',setParams(params),options);
+            return result;
+        }
         this.set = Object.assign(set_send, {
             call:set_call
+            , txData:set_txData
         });
         let transferOwnership_send = async (newOwner:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('transferOwnership',[newOwner],options);
@@ -382,8 +427,13 @@ export class BakeryMaster extends _Contract{
             let result = await this.call('transferOwnership',[newOwner],options);
             return;
         }
+        let transferOwnership_txData = async (newOwner:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('transferOwnership',[newOwner],options);
+            return result;
+        }
         this.transferOwnership = Object.assign(transferOwnership_send, {
             call:transferOwnership_call
+            , txData:transferOwnership_txData
         });
         let updatePool_send = async (pair:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('updatePool',[pair],options);
@@ -393,8 +443,13 @@ export class BakeryMaster extends _Contract{
             let result = await this.call('updatePool',[pair],options);
             return;
         }
+        let updatePool_txData = async (pair:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('updatePool',[pair],options);
+            return result;
+        }
         this.updatePool = Object.assign(updatePool_send, {
             call:updatePool_call
+            , txData:updatePool_txData
         });
         let withdrawParams = (params: IWithdrawParams) => [params.pair,this.wallet.utils.toString(params.amount)];
         let withdraw_send = async (params: IWithdrawParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -405,8 +460,13 @@ export class BakeryMaster extends _Contract{
             let result = await this.call('withdraw',withdrawParams(params),options);
             return;
         }
+        let withdraw_txData = async (params: IWithdrawParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('withdraw',withdrawParams(params),options);
+            return result;
+        }
         this.withdraw = Object.assign(withdraw_send, {
             call:withdraw_call
+            , txData:withdraw_txData
         });
     }
 }

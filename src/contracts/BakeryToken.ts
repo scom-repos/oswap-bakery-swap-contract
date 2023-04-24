@@ -16,7 +16,7 @@ export class BakeryToken extends _Contract{
         super(wallet, address, Bin.abi, Bin.bytecode);
         this.assign()
     }
-    deploy(options?: number|BigNumber|TransactionOptions): Promise<string>{
+    deploy(options?: TransactionOptions): Promise<string>{
         return this.__deploy([], options);
     }
     parseApprovalEvent(receipt: TransactionReceipt): BakeryToken.ApprovalEvent[]{
@@ -90,6 +90,7 @@ export class BakeryToken extends _Contract{
     approve: {
         (params: IApproveParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IApproveParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: IApproveParams, options?: TransactionOptions) => Promise<string>;
     }
     balanceOf: {
         (account:string, options?: TransactionOptions): Promise<BigNumber>;
@@ -103,14 +104,17 @@ export class BakeryToken extends _Contract{
     decreaseAllowance: {
         (params: IDecreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
     }
     delegate: {
         (delegatee:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (delegatee:string, options?: TransactionOptions) => Promise<void>;
+        txData: (delegatee:string, options?: TransactionOptions) => Promise<string>;
     }
     delegateBySig: {
         (params: IDelegateBySigParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IDelegateBySigParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: IDelegateBySigParams, options?: TransactionOptions) => Promise<string>;
     }
     delegates: {
         (delegator:string, options?: TransactionOptions): Promise<string>;
@@ -127,14 +131,17 @@ export class BakeryToken extends _Contract{
     increaseAllowance: {
         (params: IIncreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
     }
     mint: {
         (amount:number|BigNumber, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (amount:number|BigNumber, options?: TransactionOptions) => Promise<boolean>;
+        txData: (amount:number|BigNumber, options?: TransactionOptions) => Promise<string>;
     }
     mintTo: {
         (params: IMintToParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IMintToParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: IMintToParams, options?: TransactionOptions) => Promise<string>;
     }
     name: {
         (options?: TransactionOptions): Promise<string>;
@@ -151,6 +158,7 @@ export class BakeryToken extends _Contract{
     renounceOwnership: {
         (options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (options?: TransactionOptions) => Promise<void>;
+        txData: (options?: TransactionOptions) => Promise<string>;
     }
     symbol: {
         (options?: TransactionOptions): Promise<string>;
@@ -161,14 +169,17 @@ export class BakeryToken extends _Contract{
     transfer: {
         (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ITransferParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: ITransferParams, options?: TransactionOptions) => Promise<string>;
     }
     transferFrom: {
         (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ITransferFromParams, options?: TransactionOptions) => Promise<boolean>;
+        txData: (params: ITransferFromParams, options?: TransactionOptions) => Promise<string>;
     }
     transferOwnership: {
         (newOwner:string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (newOwner:string, options?: TransactionOptions) => Promise<void>;
+        txData: (newOwner:string, options?: TransactionOptions) => Promise<string>;
     }
     private assign(){
         let DELEGATION_TYPEHASH_call = async (options?: TransactionOptions): Promise<string> => {
@@ -266,8 +277,13 @@ export class BakeryToken extends _Contract{
             let result = await this.call('approve',approveParams(params),options);
             return result;
         }
+        let approve_txData = async (params: IApproveParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('approve',approveParams(params),options);
+            return result;
+        }
         this.approve = Object.assign(approve_send, {
             call:approve_call
+            , txData:approve_txData
         });
         let decreaseAllowanceParams = (params: IDecreaseAllowanceParams) => [params.spender,this.wallet.utils.toString(params.subtractedValue)];
         let decreaseAllowance_send = async (params: IDecreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -278,8 +294,13 @@ export class BakeryToken extends _Contract{
             let result = await this.call('decreaseAllowance',decreaseAllowanceParams(params),options);
             return result;
         }
+        let decreaseAllowance_txData = async (params: IDecreaseAllowanceParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('decreaseAllowance',decreaseAllowanceParams(params),options);
+            return result;
+        }
         this.decreaseAllowance = Object.assign(decreaseAllowance_send, {
             call:decreaseAllowance_call
+            , txData:decreaseAllowance_txData
         });
         let delegate_send = async (delegatee:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('delegate',[delegatee],options);
@@ -289,8 +310,13 @@ export class BakeryToken extends _Contract{
             let result = await this.call('delegate',[delegatee],options);
             return;
         }
+        let delegate_txData = async (delegatee:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('delegate',[delegatee],options);
+            return result;
+        }
         this.delegate = Object.assign(delegate_send, {
             call:delegate_call
+            , txData:delegate_txData
         });
         let delegateBySigParams = (params: IDelegateBySigParams) => [params.delegatee,this.wallet.utils.toString(params.nonce),this.wallet.utils.toString(params.expiry),this.wallet.utils.toString(params.v),this.wallet.utils.stringToBytes32(params.r),this.wallet.utils.stringToBytes32(params.s)];
         let delegateBySig_send = async (params: IDelegateBySigParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -301,8 +327,13 @@ export class BakeryToken extends _Contract{
             let result = await this.call('delegateBySig',delegateBySigParams(params),options);
             return;
         }
+        let delegateBySig_txData = async (params: IDelegateBySigParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('delegateBySig',delegateBySigParams(params),options);
+            return result;
+        }
         this.delegateBySig = Object.assign(delegateBySig_send, {
             call:delegateBySig_call
+            , txData:delegateBySig_txData
         });
         let increaseAllowanceParams = (params: IIncreaseAllowanceParams) => [params.spender,this.wallet.utils.toString(params.addedValue)];
         let increaseAllowance_send = async (params: IIncreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -313,8 +344,13 @@ export class BakeryToken extends _Contract{
             let result = await this.call('increaseAllowance',increaseAllowanceParams(params),options);
             return result;
         }
+        let increaseAllowance_txData = async (params: IIncreaseAllowanceParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('increaseAllowance',increaseAllowanceParams(params),options);
+            return result;
+        }
         this.increaseAllowance = Object.assign(increaseAllowance_send, {
             call:increaseAllowance_call
+            , txData:increaseAllowance_txData
         });
         let mint_send = async (amount:number|BigNumber, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('mint',[this.wallet.utils.toString(amount)],options);
@@ -324,8 +360,13 @@ export class BakeryToken extends _Contract{
             let result = await this.call('mint',[this.wallet.utils.toString(amount)],options);
             return result;
         }
+        let mint_txData = async (amount:number|BigNumber, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('mint',[this.wallet.utils.toString(amount)],options);
+            return result;
+        }
         this.mint = Object.assign(mint_send, {
             call:mint_call
+            , txData:mint_txData
         });
         let mintToParams = (params: IMintToParams) => [params.to,this.wallet.utils.toString(params.amount)];
         let mintTo_send = async (params: IMintToParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -336,8 +377,13 @@ export class BakeryToken extends _Contract{
             let result = await this.call('mintTo',mintToParams(params),options);
             return;
         }
+        let mintTo_txData = async (params: IMintToParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('mintTo',mintToParams(params),options);
+            return result;
+        }
         this.mintTo = Object.assign(mintTo_send, {
             call:mintTo_call
+            , txData:mintTo_txData
         });
         let renounceOwnership_send = async (options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('renounceOwnership',[],options);
@@ -347,8 +393,13 @@ export class BakeryToken extends _Contract{
             let result = await this.call('renounceOwnership',[],options);
             return;
         }
+        let renounceOwnership_txData = async (options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('renounceOwnership',[],options);
+            return result;
+        }
         this.renounceOwnership = Object.assign(renounceOwnership_send, {
             call:renounceOwnership_call
+            , txData:renounceOwnership_txData
         });
         let transferParams = (params: ITransferParams) => [params.recipient,this.wallet.utils.toString(params.amount)];
         let transfer_send = async (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -359,8 +410,13 @@ export class BakeryToken extends _Contract{
             let result = await this.call('transfer',transferParams(params),options);
             return result;
         }
+        let transfer_txData = async (params: ITransferParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('transfer',transferParams(params),options);
+            return result;
+        }
         this.transfer = Object.assign(transfer_send, {
             call:transfer_call
+            , txData:transfer_txData
         });
         let transferFromParams = (params: ITransferFromParams) => [params.sender,params.recipient,this.wallet.utils.toString(params.amount)];
         let transferFrom_send = async (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -371,8 +427,13 @@ export class BakeryToken extends _Contract{
             let result = await this.call('transferFrom',transferFromParams(params),options);
             return result;
         }
+        let transferFrom_txData = async (params: ITransferFromParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('transferFrom',transferFromParams(params),options);
+            return result;
+        }
         this.transferFrom = Object.assign(transferFrom_send, {
             call:transferFrom_call
+            , txData:transferFrom_txData
         });
         let transferOwnership_send = async (newOwner:string, options?: TransactionOptions): Promise<TransactionReceipt> => {
             let result = await this.send('transferOwnership',[newOwner],options);
@@ -382,8 +443,13 @@ export class BakeryToken extends _Contract{
             let result = await this.call('transferOwnership',[newOwner],options);
             return;
         }
+        let transferOwnership_txData = async (newOwner:string, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('transferOwnership',[newOwner],options);
+            return result;
+        }
         this.transferOwnership = Object.assign(transferOwnership_send, {
             call:transferOwnership_call
+            , txData:transferOwnership_txData
         });
     }
 }

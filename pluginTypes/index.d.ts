@@ -92,6 +92,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery
         approve: {
             (params: IApproveParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IApproveParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: IApproveParams, options?: TransactionOptions) => Promise<string>;
         };
         balanceOf: {
             (account: string, options?: TransactionOptions): Promise<BigNumber>;
@@ -102,6 +103,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery
         decreaseAllowance: {
             (params: IDecreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
         };
         getOwner: {
             (options?: TransactionOptions): Promise<string>;
@@ -109,10 +111,12 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery
         increaseAllowance: {
             (params: IIncreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
         };
         mint: {
             (amount: number | BigNumber, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (amount: number | BigNumber, options?: TransactionOptions) => Promise<boolean>;
+            txData: (amount: number | BigNumber, options?: TransactionOptions) => Promise<string>;
         };
         name: {
             (options?: TransactionOptions): Promise<string>;
@@ -123,6 +127,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery
         renounceOwnership: {
             (options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (options?: TransactionOptions) => Promise<void>;
+            txData: (options?: TransactionOptions) => Promise<string>;
         };
         symbol: {
             (options?: TransactionOptions): Promise<string>;
@@ -133,14 +138,17 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery
         transfer: {
             (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ITransferParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: ITransferParams, options?: TransactionOptions) => Promise<string>;
         };
         transferFrom: {
             (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ITransferFromParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: ITransferFromParams, options?: TransactionOptions) => Promise<string>;
         };
         transferOwnership: {
             (newOwner: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (newOwner: string, options?: TransactionOptions) => Promise<void>;
+            txData: (newOwner: string, options?: TransactionOptions) => Promise<string>;
         };
         private assign;
     }
@@ -278,6 +286,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts" {
         add: {
             (params: IAddParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IAddParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: IAddParams, options?: TransactionOptions) => Promise<string>;
         };
         bake: {
             (options?: TransactionOptions): Promise<string>;
@@ -306,10 +315,12 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts" {
         deposit: {
             (params: IDepositParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IDepositParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: IDepositParams, options?: TransactionOptions) => Promise<string>;
         };
         dev: {
             (devAddr: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (devAddr: string, options?: TransactionOptions) => Promise<void>;
+            txData: (devAddr: string, options?: TransactionOptions) => Promise<string>;
         };
         devAddr: {
             (options?: TransactionOptions): Promise<string>;
@@ -317,6 +328,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts" {
         emergencyWithdraw: {
             (pair: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (pair: string, options?: TransactionOptions) => Promise<void>;
+            txData: (pair: string, options?: TransactionOptions) => Promise<string>;
         };
         existsPool: {
             (pair: string, options?: TransactionOptions): Promise<boolean>;
@@ -330,6 +342,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts" {
         massUpdatePools: {
             (options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (options?: TransactionOptions) => Promise<void>;
+            txData: (options?: TransactionOptions) => Promise<string>;
         };
         maxRewardBlockNumber: {
             (options?: TransactionOptions): Promise<BigNumber>;
@@ -363,10 +376,12 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts" {
         renounceOwnership: {
             (options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (options?: TransactionOptions) => Promise<void>;
+            txData: (options?: TransactionOptions) => Promise<string>;
         };
         set: {
             (params: ISetParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISetParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: ISetParams, options?: TransactionOptions) => Promise<string>;
         };
         startBlock: {
             (options?: TransactionOptions): Promise<BigNumber>;
@@ -377,14 +392,17 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts" {
         transferOwnership: {
             (newOwner: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (newOwner: string, options?: TransactionOptions) => Promise<void>;
+            txData: (newOwner: string, options?: TransactionOptions) => Promise<string>;
         };
         updatePool: {
             (pair: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (pair: string, options?: TransactionOptions) => Promise<void>;
+            txData: (pair: string, options?: TransactionOptions) => Promise<string>;
         };
         withdraw: {
             (params: IWithdrawParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IWithdrawParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: IWithdrawParams, options?: TransactionOptions) => Promise<string>;
         };
         private assign;
     }
@@ -636,6 +654,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts" 
                 amountB: BigNumber;
                 liquidity: BigNumber;
             }>;
+            txData: (params: IAddLiquidityParams, options?: TransactionOptions) => Promise<string>;
         };
         addLiquidityBNB: {
             (params: IAddLiquidityBNBParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
@@ -644,6 +663,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts" 
                 amountBNB: BigNumber;
                 liquidity: BigNumber;
             }>;
+            txData: (params: IAddLiquidityBNBParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
         };
         factory: {
             (options?: TransactionOptions): Promise<string>;
@@ -669,6 +689,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts" 
                 amountA: BigNumber;
                 amountB: BigNumber;
             }>;
+            txData: (params: IRemoveLiquidityParams, options?: TransactionOptions) => Promise<string>;
         };
         removeLiquidityBNB: {
             (params: IRemoveLiquidityBNBParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -676,10 +697,12 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts" 
                 amountToken: BigNumber;
                 amountBNB: BigNumber;
             }>;
+            txData: (params: IRemoveLiquidityBNBParams, options?: TransactionOptions) => Promise<string>;
         };
         removeLiquidityBNBSupportingFeeOnTransferTokens: {
             (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+            txData: (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         removeLiquidityBNBWithPermit: {
             (params: IRemoveLiquidityBNBWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -687,10 +710,12 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts" 
                 amountToken: BigNumber;
                 amountBNB: BigNumber;
             }>;
+            txData: (params: IRemoveLiquidityBNBWithPermitParams, options?: TransactionOptions) => Promise<string>;
         };
         removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens: {
             (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+            txData: (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         removeLiquidityWithPermit: {
             (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
@@ -698,42 +723,52 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts" 
                 amountA: BigNumber;
                 amountB: BigNumber;
             }>;
+            txData: (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions) => Promise<string>;
         };
         swapBNBForExactTokens: {
             (params: ISwapBNBForExactTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapBNBForExactTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapBNBForExactTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
         };
         swapExactBNBForTokens: {
             (params: ISwapExactBNBForTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactBNBForTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapExactBNBForTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
         };
         swapExactBNBForTokensSupportingFeeOnTransferTokens: {
             (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<void>;
+            txData: (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams, options?: number | BigNumber | TransactionOptions) => Promise<string>;
         };
         swapExactTokensForBNB: {
             (params: ISwapExactTokensForBNBParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactTokensForBNBParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapExactTokensForBNBParams, options?: TransactionOptions) => Promise<string>;
         };
         swapExactTokensForBNBSupportingFeeOnTransferTokens: {
             (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         swapExactTokensForTokens: {
             (params: ISwapExactTokensForTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         swapExactTokensForTokensSupportingFeeOnTransferTokens: {
             (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         swapTokensForExactBNB: {
             (params: ISwapTokensForExactBNBParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapTokensForExactBNBParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapTokensForExactBNBParams, options?: TransactionOptions) => Promise<string>;
         };
         swapTokensForExactTokens: {
             (params: ISwapTokensForExactTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+            txData: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<string>;
         };
         private assign;
     }
@@ -824,7 +859,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts" {
     export class BakeryToken extends _Contract {
         static _abi: any;
         constructor(wallet: IWallet, address?: string);
-        deploy(options?: number | BigNumber | TransactionOptions): Promise<string>;
+        deploy(options?: TransactionOptions): Promise<string>;
         parseApprovalEvent(receipt: TransactionReceipt): BakeryToken.ApprovalEvent[];
         decodeApprovalEvent(event: Event): BakeryToken.ApprovalEvent;
         parseDelegateChangedEvent(receipt: TransactionReceipt): BakeryToken.DelegateChangedEvent[];
@@ -847,6 +882,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts" {
         approve: {
             (params: IApproveParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IApproveParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: IApproveParams, options?: TransactionOptions) => Promise<string>;
         };
         balanceOf: {
             (account: string, options?: TransactionOptions): Promise<BigNumber>;
@@ -863,14 +899,17 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts" {
         decreaseAllowance: {
             (params: IDecreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
         };
         delegate: {
             (delegatee: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (delegatee: string, options?: TransactionOptions) => Promise<void>;
+            txData: (delegatee: string, options?: TransactionOptions) => Promise<string>;
         };
         delegateBySig: {
             (params: IDelegateBySigParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IDelegateBySigParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: IDelegateBySigParams, options?: TransactionOptions) => Promise<string>;
         };
         delegates: {
             (delegator: string, options?: TransactionOptions): Promise<string>;
@@ -887,14 +926,17 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts" {
         increaseAllowance: {
             (params: IIncreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
         };
         mint: {
             (amount: number | BigNumber, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (amount: number | BigNumber, options?: TransactionOptions) => Promise<boolean>;
+            txData: (amount: number | BigNumber, options?: TransactionOptions) => Promise<string>;
         };
         mintTo: {
             (params: IMintToParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: IMintToParams, options?: TransactionOptions) => Promise<void>;
+            txData: (params: IMintToParams, options?: TransactionOptions) => Promise<string>;
         };
         name: {
             (options?: TransactionOptions): Promise<string>;
@@ -911,6 +953,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts" {
         renounceOwnership: {
             (options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (options?: TransactionOptions) => Promise<void>;
+            txData: (options?: TransactionOptions) => Promise<string>;
         };
         symbol: {
             (options?: TransactionOptions): Promise<string>;
@@ -921,14 +964,17 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts" {
         transfer: {
             (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ITransferParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: ITransferParams, options?: TransactionOptions) => Promise<string>;
         };
         transferFrom: {
             (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (params: ITransferFromParams, options?: TransactionOptions) => Promise<boolean>;
+            txData: (params: ITransferFromParams, options?: TransactionOptions) => Promise<string>;
         };
         transferOwnership: {
             (newOwner: string, options?: TransactionOptions): Promise<TransactionReceipt>;
             call: (newOwner: string, options?: TransactionOptions) => Promise<void>;
+            txData: (newOwner: string, options?: TransactionOptions) => Promise<string>;
         };
         private assign;
     }

@@ -38,10 +38,12 @@ export class BakerySwapRouter extends _Contract{
     addLiquidity: {
         (params: IAddLiquidityParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IAddLiquidityParams, options?: TransactionOptions) => Promise<{amountA:BigNumber,amountB:BigNumber,liquidity:BigNumber}>;
+        txData: (params: IAddLiquidityParams, options?: TransactionOptions) => Promise<string>;
     }
     addLiquidityBNB: {
         (params: IAddLiquidityBNBParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IAddLiquidityBNBParams, options?: number|BigNumber|TransactionOptions) => Promise<{amountToken:BigNumber,amountBNB:BigNumber,liquidity:BigNumber}>;
+        txData: (params: IAddLiquidityBNBParams, options?: number|BigNumber|TransactionOptions) => Promise<string>;
     }
     factory: {
         (options?: TransactionOptions): Promise<string>;
@@ -64,62 +66,77 @@ export class BakerySwapRouter extends _Contract{
     removeLiquidity: {
         (params: IRemoveLiquidityParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityParams, options?: TransactionOptions) => Promise<{amountA:BigNumber,amountB:BigNumber}>;
+        txData: (params: IRemoveLiquidityParams, options?: TransactionOptions) => Promise<string>;
     }
     removeLiquidityBNB: {
         (params: IRemoveLiquidityBNBParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityBNBParams, options?: TransactionOptions) => Promise<{amountToken:BigNumber,amountBNB:BigNumber}>;
+        txData: (params: IRemoveLiquidityBNBParams, options?: TransactionOptions) => Promise<string>;
     }
     removeLiquidityBNBSupportingFeeOnTransferTokens: {
         (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+        txData: (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     removeLiquidityBNBWithPermit: {
         (params: IRemoveLiquidityBNBWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityBNBWithPermitParams, options?: TransactionOptions) => Promise<{amountToken:BigNumber,amountBNB:BigNumber}>;
+        txData: (params: IRemoveLiquidityBNBWithPermitParams, options?: TransactionOptions) => Promise<string>;
     }
     removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens: {
         (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<BigNumber>;
+        txData: (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     removeLiquidityWithPermit: {
         (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions) => Promise<{amountA:BigNumber,amountB:BigNumber}>;
+        txData: (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions) => Promise<string>;
     }
     swapBNBForExactTokens: {
         (params: ISwapBNBForExactTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapBNBForExactTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapBNBForExactTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<string>;
     }
     swapExactBNBForTokens: {
         (params: ISwapExactBNBForTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactBNBForTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactBNBForTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<string>;
     }
     swapExactBNBForTokensSupportingFeeOnTransferTokens: {
         (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams, options?: number|BigNumber|TransactionOptions) => Promise<string>;
     }
     swapExactTokensForBNB: {
         (params: ISwapExactTokensForBNBParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForBNBParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactTokensForBNBParams, options?: TransactionOptions) => Promise<string>;
     }
     swapExactTokensForBNBSupportingFeeOnTransferTokens: {
         (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     swapExactTokensForTokens: {
         (params: ISwapExactTokensForTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapExactTokensForTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     swapExactTokensForTokensSupportingFeeOnTransferTokens: {
         (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     swapTokensForExactBNB: {
         (params: ISwapTokensForExactBNBParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapTokensForExactBNBParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapTokensForExactBNBParams, options?: TransactionOptions) => Promise<string>;
     }
     swapTokensForExactTokens: {
         (params: ISwapTokensForExactTokensParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<BigNumber[]>;
+        txData: (params: ISwapTokensForExactTokensParams, options?: TransactionOptions) => Promise<string>;
     }
     private assign(){
         let WBNB_call = async (options?: TransactionOptions): Promise<string> => {
@@ -175,8 +192,13 @@ export class BakerySwapRouter extends _Contract{
                 liquidity: new BigNumber(result.liquidity)
             };
         }
+        let addLiquidity_txData = async (params: IAddLiquidityParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('addLiquidity',addLiquidityParams(params),options);
+            return result;
+        }
         this.addLiquidity = Object.assign(addLiquidity_send, {
             call:addLiquidity_call
+            , txData:addLiquidity_txData
         });
         let addLiquidityBNBParams = (params: IAddLiquidityBNBParams) => [params.token,this.wallet.utils.toString(params.amountTokenDesired),this.wallet.utils.toString(params.amountTokenMin),this.wallet.utils.toString(params.amountBNBMin),params.to,this.wallet.utils.toString(params.deadline)];
         let addLiquidityBNB_send = async (params: IAddLiquidityBNBParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt> => {
@@ -191,8 +213,13 @@ export class BakerySwapRouter extends _Contract{
                 liquidity: new BigNumber(result.liquidity)
             };
         }
+        let addLiquidityBNB_txData = async (params: IAddLiquidityBNBParams, options?: number|BigNumber|TransactionOptions): Promise<string> => {
+            let result = await this.txData('addLiquidityBNB',addLiquidityBNBParams(params),options);
+            return result;
+        }
         this.addLiquidityBNB = Object.assign(addLiquidityBNB_send, {
             call:addLiquidityBNB_call
+            , txData:addLiquidityBNB_txData
         });
         let removeLiquidityParams = (params: IRemoveLiquidityParams) => [params.tokenA,params.tokenB,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountAMin),this.wallet.utils.toString(params.amountBMin),params.to,this.wallet.utils.toString(params.deadline)];
         let removeLiquidity_send = async (params: IRemoveLiquidityParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -206,8 +233,13 @@ export class BakerySwapRouter extends _Contract{
                 amountB: new BigNumber(result.amountB)
             };
         }
+        let removeLiquidity_txData = async (params: IRemoveLiquidityParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidity',removeLiquidityParams(params),options);
+            return result;
+        }
         this.removeLiquidity = Object.assign(removeLiquidity_send, {
             call:removeLiquidity_call
+            , txData:removeLiquidity_txData
         });
         let removeLiquidityBNBParams = (params: IRemoveLiquidityBNBParams) => [params.token,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountTokenMin),this.wallet.utils.toString(params.amountBNBMin),params.to,this.wallet.utils.toString(params.deadline)];
         let removeLiquidityBNB_send = async (params: IRemoveLiquidityBNBParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -221,8 +253,13 @@ export class BakerySwapRouter extends _Contract{
                 amountBNB: new BigNumber(result.amountBNB)
             };
         }
+        let removeLiquidityBNB_txData = async (params: IRemoveLiquidityBNBParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidityBNB',removeLiquidityBNBParams(params),options);
+            return result;
+        }
         this.removeLiquidityBNB = Object.assign(removeLiquidityBNB_send, {
             call:removeLiquidityBNB_call
+            , txData:removeLiquidityBNB_txData
         });
         let removeLiquidityBNBSupportingFeeOnTransferTokensParams = (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams) => [params.token,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountTokenMin),this.wallet.utils.toString(params.amountBNBMin),params.to,this.wallet.utils.toString(params.deadline)];
         let removeLiquidityBNBSupportingFeeOnTransferTokens_send = async (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -233,8 +270,13 @@ export class BakerySwapRouter extends _Contract{
             let result = await this.call('removeLiquidityBNBSupportingFeeOnTransferTokens',removeLiquidityBNBSupportingFeeOnTransferTokensParams(params),options);
             return new BigNumber(result);
         }
+        let removeLiquidityBNBSupportingFeeOnTransferTokens_txData = async (params: IRemoveLiquidityBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidityBNBSupportingFeeOnTransferTokens',removeLiquidityBNBSupportingFeeOnTransferTokensParams(params),options);
+            return result;
+        }
         this.removeLiquidityBNBSupportingFeeOnTransferTokens = Object.assign(removeLiquidityBNBSupportingFeeOnTransferTokens_send, {
             call:removeLiquidityBNBSupportingFeeOnTransferTokens_call
+            , txData:removeLiquidityBNBSupportingFeeOnTransferTokens_txData
         });
         let removeLiquidityBNBWithPermitParams = (params: IRemoveLiquidityBNBWithPermitParams) => [params.token,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountTokenMin),this.wallet.utils.toString(params.amountBNBMin),params.to,this.wallet.utils.toString(params.deadline),params.approveMax,this.wallet.utils.toString(params.v),this.wallet.utils.stringToBytes32(params.r),this.wallet.utils.stringToBytes32(params.s)];
         let removeLiquidityBNBWithPermit_send = async (params: IRemoveLiquidityBNBWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -248,8 +290,13 @@ export class BakerySwapRouter extends _Contract{
                 amountBNB: new BigNumber(result.amountBNB)
             };
         }
+        let removeLiquidityBNBWithPermit_txData = async (params: IRemoveLiquidityBNBWithPermitParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidityBNBWithPermit',removeLiquidityBNBWithPermitParams(params),options);
+            return result;
+        }
         this.removeLiquidityBNBWithPermit = Object.assign(removeLiquidityBNBWithPermit_send, {
             call:removeLiquidityBNBWithPermit_call
+            , txData:removeLiquidityBNBWithPermit_txData
         });
         let removeLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams = (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams) => [params.token,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountTokenMin),this.wallet.utils.toString(params.amountBNBMin),params.to,this.wallet.utils.toString(params.deadline),params.approveMax,this.wallet.utils.toString(params.v),this.wallet.utils.stringToBytes32(params.r),this.wallet.utils.stringToBytes32(params.s)];
         let removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens_send = async (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -260,8 +307,13 @@ export class BakerySwapRouter extends _Contract{
             let result = await this.call('removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens',removeLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams(params),options);
             return new BigNumber(result);
         }
+        let removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens_txData = async (params: IRemoveLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens',removeLiquidityBNBWithPermitSupportingFeeOnTransferTokensParams(params),options);
+            return result;
+        }
         this.removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens = Object.assign(removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens_send, {
             call:removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens_call
+            , txData:removeLiquidityBNBWithPermitSupportingFeeOnTransferTokens_txData
         });
         let removeLiquidityWithPermitParams = (params: IRemoveLiquidityWithPermitParams) => [params.tokenA,params.tokenB,this.wallet.utils.toString(params.liquidity),this.wallet.utils.toString(params.amountAMin),this.wallet.utils.toString(params.amountBMin),params.to,this.wallet.utils.toString(params.deadline),params.approveMax,this.wallet.utils.toString(params.v),this.wallet.utils.stringToBytes32(params.r),this.wallet.utils.stringToBytes32(params.s)];
         let removeLiquidityWithPermit_send = async (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -275,8 +327,13 @@ export class BakerySwapRouter extends _Contract{
                 amountB: new BigNumber(result.amountB)
             };
         }
+        let removeLiquidityWithPermit_txData = async (params: IRemoveLiquidityWithPermitParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('removeLiquidityWithPermit',removeLiquidityWithPermitParams(params),options);
+            return result;
+        }
         this.removeLiquidityWithPermit = Object.assign(removeLiquidityWithPermit_send, {
             call:removeLiquidityWithPermit_call
+            , txData:removeLiquidityWithPermit_txData
         });
         let swapBNBForExactTokensParams = (params: ISwapBNBForExactTokensParams) => [this.wallet.utils.toString(params.amountOut),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapBNBForExactTokens_send = async (params: ISwapBNBForExactTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt> => {
@@ -287,8 +344,13 @@ export class BakerySwapRouter extends _Contract{
             let result = await this.call('swapBNBForExactTokens',swapBNBForExactTokensParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapBNBForExactTokens_txData = async (params: ISwapBNBForExactTokensParams, options?: number|BigNumber|TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapBNBForExactTokens',swapBNBForExactTokensParams(params),options);
+            return result;
+        }
         this.swapBNBForExactTokens = Object.assign(swapBNBForExactTokens_send, {
             call:swapBNBForExactTokens_call
+            , txData:swapBNBForExactTokens_txData
         });
         let swapExactBNBForTokensParams = (params: ISwapExactBNBForTokensParams) => [this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactBNBForTokens_send = async (params: ISwapExactBNBForTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt> => {
@@ -299,8 +361,13 @@ export class BakerySwapRouter extends _Contract{
             let result = await this.call('swapExactBNBForTokens',swapExactBNBForTokensParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapExactBNBForTokens_txData = async (params: ISwapExactBNBForTokensParams, options?: number|BigNumber|TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactBNBForTokens',swapExactBNBForTokensParams(params),options);
+            return result;
+        }
         this.swapExactBNBForTokens = Object.assign(swapExactBNBForTokens_send, {
             call:swapExactBNBForTokens_call
+            , txData:swapExactBNBForTokens_txData
         });
         let swapExactBNBForTokensSupportingFeeOnTransferTokensParams = (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams) => [this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactBNBForTokensSupportingFeeOnTransferTokens_send = async (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams, options?: number|BigNumber|TransactionOptions): Promise<TransactionReceipt> => {
@@ -311,8 +378,13 @@ export class BakerySwapRouter extends _Contract{
             let result = await this.call('swapExactBNBForTokensSupportingFeeOnTransferTokens',swapExactBNBForTokensSupportingFeeOnTransferTokensParams(params),options);
             return;
         }
+        let swapExactBNBForTokensSupportingFeeOnTransferTokens_txData = async (params: ISwapExactBNBForTokensSupportingFeeOnTransferTokensParams, options?: number|BigNumber|TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactBNBForTokensSupportingFeeOnTransferTokens',swapExactBNBForTokensSupportingFeeOnTransferTokensParams(params),options);
+            return result;
+        }
         this.swapExactBNBForTokensSupportingFeeOnTransferTokens = Object.assign(swapExactBNBForTokensSupportingFeeOnTransferTokens_send, {
             call:swapExactBNBForTokensSupportingFeeOnTransferTokens_call
+            , txData:swapExactBNBForTokensSupportingFeeOnTransferTokens_txData
         });
         let swapExactTokensForBNBParams = (params: ISwapExactTokensForBNBParams) => [this.wallet.utils.toString(params.amountIn),this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactTokensForBNB_send = async (params: ISwapExactTokensForBNBParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -323,8 +395,13 @@ export class BakerySwapRouter extends _Contract{
             let result = await this.call('swapExactTokensForBNB',swapExactTokensForBNBParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapExactTokensForBNB_txData = async (params: ISwapExactTokensForBNBParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactTokensForBNB',swapExactTokensForBNBParams(params),options);
+            return result;
+        }
         this.swapExactTokensForBNB = Object.assign(swapExactTokensForBNB_send, {
             call:swapExactTokensForBNB_call
+            , txData:swapExactTokensForBNB_txData
         });
         let swapExactTokensForBNBSupportingFeeOnTransferTokensParams = (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams) => [this.wallet.utils.toString(params.amountIn),this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactTokensForBNBSupportingFeeOnTransferTokens_send = async (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -335,8 +412,13 @@ export class BakerySwapRouter extends _Contract{
             let result = await this.call('swapExactTokensForBNBSupportingFeeOnTransferTokens',swapExactTokensForBNBSupportingFeeOnTransferTokensParams(params),options);
             return;
         }
+        let swapExactTokensForBNBSupportingFeeOnTransferTokens_txData = async (params: ISwapExactTokensForBNBSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactTokensForBNBSupportingFeeOnTransferTokens',swapExactTokensForBNBSupportingFeeOnTransferTokensParams(params),options);
+            return result;
+        }
         this.swapExactTokensForBNBSupportingFeeOnTransferTokens = Object.assign(swapExactTokensForBNBSupportingFeeOnTransferTokens_send, {
             call:swapExactTokensForBNBSupportingFeeOnTransferTokens_call
+            , txData:swapExactTokensForBNBSupportingFeeOnTransferTokens_txData
         });
         let swapExactTokensForTokensParams = (params: ISwapExactTokensForTokensParams) => [this.wallet.utils.toString(params.amountIn),this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactTokensForTokens_send = async (params: ISwapExactTokensForTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -347,8 +429,13 @@ export class BakerySwapRouter extends _Contract{
             let result = await this.call('swapExactTokensForTokens',swapExactTokensForTokensParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapExactTokensForTokens_txData = async (params: ISwapExactTokensForTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactTokensForTokens',swapExactTokensForTokensParams(params),options);
+            return result;
+        }
         this.swapExactTokensForTokens = Object.assign(swapExactTokensForTokens_send, {
             call:swapExactTokensForTokens_call
+            , txData:swapExactTokensForTokens_txData
         });
         let swapExactTokensForTokensSupportingFeeOnTransferTokensParams = (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams) => [this.wallet.utils.toString(params.amountIn),this.wallet.utils.toString(params.amountOutMin),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapExactTokensForTokensSupportingFeeOnTransferTokens_send = async (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -359,8 +446,13 @@ export class BakerySwapRouter extends _Contract{
             let result = await this.call('swapExactTokensForTokensSupportingFeeOnTransferTokens',swapExactTokensForTokensSupportingFeeOnTransferTokensParams(params),options);
             return;
         }
+        let swapExactTokensForTokensSupportingFeeOnTransferTokens_txData = async (params: ISwapExactTokensForTokensSupportingFeeOnTransferTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapExactTokensForTokensSupportingFeeOnTransferTokens',swapExactTokensForTokensSupportingFeeOnTransferTokensParams(params),options);
+            return result;
+        }
         this.swapExactTokensForTokensSupportingFeeOnTransferTokens = Object.assign(swapExactTokensForTokensSupportingFeeOnTransferTokens_send, {
             call:swapExactTokensForTokensSupportingFeeOnTransferTokens_call
+            , txData:swapExactTokensForTokensSupportingFeeOnTransferTokens_txData
         });
         let swapTokensForExactBNBParams = (params: ISwapTokensForExactBNBParams) => [this.wallet.utils.toString(params.amountOut),this.wallet.utils.toString(params.amountInMax),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapTokensForExactBNB_send = async (params: ISwapTokensForExactBNBParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -371,8 +463,13 @@ export class BakerySwapRouter extends _Contract{
             let result = await this.call('swapTokensForExactBNB',swapTokensForExactBNBParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapTokensForExactBNB_txData = async (params: ISwapTokensForExactBNBParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapTokensForExactBNB',swapTokensForExactBNBParams(params),options);
+            return result;
+        }
         this.swapTokensForExactBNB = Object.assign(swapTokensForExactBNB_send, {
             call:swapTokensForExactBNB_call
+            , txData:swapTokensForExactBNB_txData
         });
         let swapTokensForExactTokensParams = (params: ISwapTokensForExactTokensParams) => [this.wallet.utils.toString(params.amountOut),this.wallet.utils.toString(params.amountInMax),params.path,params.to,this.wallet.utils.toString(params.deadline)];
         let swapTokensForExactTokens_send = async (params: ISwapTokensForExactTokensParams, options?: TransactionOptions): Promise<TransactionReceipt> => {
@@ -383,8 +480,13 @@ export class BakerySwapRouter extends _Contract{
             let result = await this.call('swapTokensForExactTokens',swapTokensForExactTokensParams(params),options);
             return result.map(e=>new BigNumber(e));
         }
+        let swapTokensForExactTokens_txData = async (params: ISwapTokensForExactTokensParams, options?: TransactionOptions): Promise<string> => {
+            let result = await this.txData('swapTokensForExactTokens',swapTokensForExactTokensParams(params),options);
+            return result;
+        }
         this.swapTokensForExactTokens = Object.assign(swapTokensForExactTokens_send, {
             call:swapTokensForExactTokens_call
+            , txData:swapTokensForExactTokens_txData
         });
     }
 }

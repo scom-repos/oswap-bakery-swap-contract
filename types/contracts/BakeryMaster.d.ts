@@ -64,6 +64,7 @@ export declare class BakeryMaster extends _Contract {
     add: {
         (params: IAddParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IAddParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: IAddParams, options?: TransactionOptions) => Promise<string>;
     };
     bake: {
         (options?: TransactionOptions): Promise<string>;
@@ -92,10 +93,12 @@ export declare class BakeryMaster extends _Contract {
     deposit: {
         (params: IDepositParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IDepositParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: IDepositParams, options?: TransactionOptions) => Promise<string>;
     };
     dev: {
         (devAddr: string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (devAddr: string, options?: TransactionOptions) => Promise<void>;
+        txData: (devAddr: string, options?: TransactionOptions) => Promise<string>;
     };
     devAddr: {
         (options?: TransactionOptions): Promise<string>;
@@ -103,6 +106,7 @@ export declare class BakeryMaster extends _Contract {
     emergencyWithdraw: {
         (pair: string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (pair: string, options?: TransactionOptions) => Promise<void>;
+        txData: (pair: string, options?: TransactionOptions) => Promise<string>;
     };
     existsPool: {
         (pair: string, options?: TransactionOptions): Promise<boolean>;
@@ -116,6 +120,7 @@ export declare class BakeryMaster extends _Contract {
     massUpdatePools: {
         (options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (options?: TransactionOptions) => Promise<void>;
+        txData: (options?: TransactionOptions) => Promise<string>;
     };
     maxRewardBlockNumber: {
         (options?: TransactionOptions): Promise<BigNumber>;
@@ -149,10 +154,12 @@ export declare class BakeryMaster extends _Contract {
     renounceOwnership: {
         (options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (options?: TransactionOptions) => Promise<void>;
+        txData: (options?: TransactionOptions) => Promise<string>;
     };
     set: {
         (params: ISetParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: ISetParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: ISetParams, options?: TransactionOptions) => Promise<string>;
     };
     startBlock: {
         (options?: TransactionOptions): Promise<BigNumber>;
@@ -163,14 +170,17 @@ export declare class BakeryMaster extends _Contract {
     transferOwnership: {
         (newOwner: string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (newOwner: string, options?: TransactionOptions) => Promise<void>;
+        txData: (newOwner: string, options?: TransactionOptions) => Promise<string>;
     };
     updatePool: {
         (pair: string, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (pair: string, options?: TransactionOptions) => Promise<void>;
+        txData: (pair: string, options?: TransactionOptions) => Promise<string>;
     };
     withdraw: {
         (params: IWithdrawParams, options?: TransactionOptions): Promise<TransactionReceipt>;
         call: (params: IWithdrawParams, options?: TransactionOptions) => Promise<void>;
+        txData: (params: IWithdrawParams, options?: TransactionOptions) => Promise<string>;
     };
     private assign;
 }
