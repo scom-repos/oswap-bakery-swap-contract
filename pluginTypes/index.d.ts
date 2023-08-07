@@ -1,5 +1,5 @@
-/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.json.ts" />
-declare module "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.json.ts" {
+/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.json.ts" />
+declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.json.ts" {
     const _default: {
         abi: ({
             inputs: {
@@ -43,180 +43,6 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery
         bytecode: string;
     };
     export default _default;
-}
-/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.ts" />
-declare module "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.ts" {
-    import { IWallet, Contract as _Contract, TransactionReceipt, BigNumber, Event, TransactionOptions } from "@ijstech/eth-contract";
-    export interface IDeployParams {
-        name: string;
-        symbol: string;
-    }
-    export interface IAllowanceParams {
-        owner: string;
-        spender: string;
-    }
-    export interface IApproveParams {
-        spender: string;
-        amount: number | BigNumber;
-    }
-    export interface IDecreaseAllowanceParams {
-        spender: string;
-        subtractedValue: number | BigNumber;
-    }
-    export interface IIncreaseAllowanceParams {
-        spender: string;
-        addedValue: number | BigNumber;
-    }
-    export interface ITransferParams {
-        recipient: string;
-        amount: number | BigNumber;
-    }
-    export interface ITransferFromParams {
-        sender: string;
-        recipient: string;
-        amount: number | BigNumber;
-    }
-    export class BEP20 extends _Contract {
-        static _abi: any;
-        constructor(wallet: IWallet, address?: string);
-        deploy(params: IDeployParams, options?: TransactionOptions): Promise<string>;
-        parseApprovalEvent(receipt: TransactionReceipt): BEP20.ApprovalEvent[];
-        decodeApprovalEvent(event: Event): BEP20.ApprovalEvent;
-        parseOwnershipTransferredEvent(receipt: TransactionReceipt): BEP20.OwnershipTransferredEvent[];
-        decodeOwnershipTransferredEvent(event: Event): BEP20.OwnershipTransferredEvent;
-        parseTransferEvent(receipt: TransactionReceipt): BEP20.TransferEvent[];
-        decodeTransferEvent(event: Event): BEP20.TransferEvent;
-        allowance: {
-            (params: IAllowanceParams, options?: TransactionOptions): Promise<BigNumber>;
-        };
-        approve: {
-            (params: IApproveParams, options?: TransactionOptions): Promise<TransactionReceipt>;
-            call: (params: IApproveParams, options?: TransactionOptions) => Promise<boolean>;
-            txData: (params: IApproveParams, options?: TransactionOptions) => Promise<string>;
-        };
-        balanceOf: {
-            (account: string, options?: TransactionOptions): Promise<BigNumber>;
-        };
-        decimals: {
-            (options?: TransactionOptions): Promise<BigNumber>;
-        };
-        decreaseAllowance: {
-            (params: IDecreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
-            call: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
-            txData: (params: IDecreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
-        };
-        getOwner: {
-            (options?: TransactionOptions): Promise<string>;
-        };
-        increaseAllowance: {
-            (params: IIncreaseAllowanceParams, options?: TransactionOptions): Promise<TransactionReceipt>;
-            call: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<boolean>;
-            txData: (params: IIncreaseAllowanceParams, options?: TransactionOptions) => Promise<string>;
-        };
-        mint: {
-            (amount: number | BigNumber, options?: TransactionOptions): Promise<TransactionReceipt>;
-            call: (amount: number | BigNumber, options?: TransactionOptions) => Promise<boolean>;
-            txData: (amount: number | BigNumber, options?: TransactionOptions) => Promise<string>;
-        };
-        name: {
-            (options?: TransactionOptions): Promise<string>;
-        };
-        owner: {
-            (options?: TransactionOptions): Promise<string>;
-        };
-        renounceOwnership: {
-            (options?: TransactionOptions): Promise<TransactionReceipt>;
-            call: (options?: TransactionOptions) => Promise<void>;
-            txData: (options?: TransactionOptions) => Promise<string>;
-        };
-        symbol: {
-            (options?: TransactionOptions): Promise<string>;
-        };
-        totalSupply: {
-            (options?: TransactionOptions): Promise<BigNumber>;
-        };
-        transfer: {
-            (params: ITransferParams, options?: TransactionOptions): Promise<TransactionReceipt>;
-            call: (params: ITransferParams, options?: TransactionOptions) => Promise<boolean>;
-            txData: (params: ITransferParams, options?: TransactionOptions) => Promise<string>;
-        };
-        transferFrom: {
-            (params: ITransferFromParams, options?: TransactionOptions): Promise<TransactionReceipt>;
-            call: (params: ITransferFromParams, options?: TransactionOptions) => Promise<boolean>;
-            txData: (params: ITransferFromParams, options?: TransactionOptions) => Promise<string>;
-        };
-        transferOwnership: {
-            (newOwner: string, options?: TransactionOptions): Promise<TransactionReceipt>;
-            call: (newOwner: string, options?: TransactionOptions) => Promise<void>;
-            txData: (newOwner: string, options?: TransactionOptions) => Promise<string>;
-        };
-        private assign;
-    }
-    export module BEP20 {
-        interface ApprovalEvent {
-            owner: string;
-            spender: string;
-            value: BigNumber;
-            _event: Event;
-        }
-        interface OwnershipTransferredEvent {
-            previousOwner: string;
-            newOwner: string;
-            _event: Event;
-        }
-        interface TransferEvent {
-            from: string;
-            to: string;
-            value: BigNumber;
-            _event: Event;
-        }
-    }
-}
-/// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.json.ts" />
-declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.json.ts" {
-    const _default_1: {
-        abi: ({
-            inputs: {
-                internalType: string;
-                name: string;
-                type: string;
-            }[];
-            stateMutability: string;
-            type: string;
-            anonymous?: undefined;
-            name?: undefined;
-            outputs?: undefined;
-        } | {
-            anonymous: boolean;
-            inputs: {
-                indexed: boolean;
-                internalType: string;
-                name: string;
-                type: string;
-            }[];
-            name: string;
-            type: string;
-            stateMutability?: undefined;
-            outputs?: undefined;
-        } | {
-            inputs: {
-                internalType: string;
-                name: string;
-                type: string;
-            }[];
-            name: string;
-            outputs: {
-                internalType: string;
-                name: string;
-                type: string;
-            }[];
-            stateMutability: string;
-            type: string;
-            anonymous?: undefined;
-        })[];
-        bytecode: string;
-    };
-    export default _default_1;
 }
 /// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts" />
 declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts" {
@@ -434,7 +260,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts" {
 }
 /// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.json.ts" />
 declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.json.ts" {
-    const _default_2: {
+    const _default_1: {
         abi: ({
             inputs: {
                 internalType: string;
@@ -468,7 +294,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.json
         })[];
         bytecode: string;
     };
-    export default _default_2;
+    export default _default_1;
 }
 /// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts" />
 declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts" {
@@ -775,7 +601,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts" 
 }
 /// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakeryToken.json.ts" />
 declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.json.ts" {
-    const _default_3: {
+    const _default_2: {
         abi: ({
             anonymous: boolean;
             inputs: {
@@ -806,7 +632,7 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.json.ts" 
         })[];
         bytecode: string;
     };
-    export default _default_3;
+    export default _default_2;
 }
 /// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts" />
 declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts" {
@@ -1012,7 +838,6 @@ declare module "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts" {
 }
 /// <amd-module name="@scom/oswap-bakery-swap-contract/contracts/index.ts" />
 declare module "@scom/oswap-bakery-swap-contract/contracts/index.ts" {
-    export { BEP20 } from "@scom/oswap-bakery-swap-contract/contracts/@BakeryProject/bakery-swap-lib/contracts/token/BEP20/BEP20.ts";
     export { BakeryMaster } from "@scom/oswap-bakery-swap-contract/contracts/BakeryMaster.ts";
     export { BakerySwapRouter } from "@scom/oswap-bakery-swap-contract/contracts/BakerySwapRouter.ts";
     export { BakeryToken } from "@scom/oswap-bakery-swap-contract/contracts/BakeryToken.ts";
